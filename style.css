@@ -50,15 +50,15 @@
   --bg-glass: rgba(13, 23, 31, 0.85);
   --bg-surface-container-low: #13212C; /* Fundo escuro para Manifesto */
   
-  --text-primary: #F0F4F7;    
-  --text-secondary: #A0B2BD;  
-  --text-light: #6E8491;      
+  --text-primary: #FFFFFF;    
+  --text-secondary: #CBD5E1;  
+  --text-light: #94A3B8;      
   
   --color-primary: #4F8EB3;    /* Azul celeste iluminado */
   --color-primary-rgb: 79, 142, 179;
   --color-accent: #E3B94A;     /* Dourado brilhante */
   --color-accent-hover: #F2CC68;
-  --color-lobos: #B83D7C;      
+  --color-lobos: #FF73BB;      
   --color-lobos-light: #3D1227;
   
   --border-color: rgba(240, 244, 247, 0.1);
@@ -2112,4 +2112,81 @@ section {
 }
 
 
+/* ==========================================================================
+   AJUSTES FINAIS DE CONTRASTE E BADGE (MODO ESCURO E CLARO)
+   ========================================================================== */
 
+/* Ajuste do Badge da Mentoria (Independente do Tema) */
+.lobos-badge {
+    background-color: #3e2221 !important; /* Marrom sutil que harmoniza com as letras */
+    color: #e879f9 !important; /* Garante que o texto se destaque com elegância */
+}
+
+/* Correção do Manifesto Clínico no Modo Escuro (Fundo vs Texto) */
+[data-theme="dark"] .therapy-manifesto {
+    background-color: #1e293b !important; /* Fundo escuro integrado */
+    background-image: linear-gradient(rgba(30, 41, 59, 0.67), rgba(30, 41, 59, 0.67)), url('Fundo-Transparente-Madala.png') !important;
+}
+[data-theme="dark"] .therapy-manifesto p {
+    color: #f8fafc !important; /* Texto branco/creme de alta visibilidade */
+}
+[data-theme="dark"] .therapy-manifesto h3 {
+    color: #f1f5f9 !important;
+}
+
+/* Correção das Caixas das Alcateias no Modo Escuro */
+[data-theme="dark"] .alcateia-item {
+    background-color: #334155 !important; /* Mantém o bloco visível */
+}
+[data-theme="dark"] .alcateia-header,
+[data-theme="dark"] .alcateia-number-title {
+    color: #fde047 !important; /* Dourado suave/creme de alto contraste para leitura rápida */
+}
+[data-theme="dark"] .alcateia-icon svg {
+    stroke: #fde047 !important;
+}
+
+/* ==========================================================================
+   AJUSTES EXCLUSIVOS MODO ESCURO - RODA DE LOBOS
+   ========================================================================== */
+
+/* Fundo da sessão Roda de Lobos no Modo Escuro */
+[data-theme="dark"] .lobos {
+    background-color: #6e5f60 !important;
+}
+
+/* Badge Mentoria no Modo Escuro */
+[data-theme="dark"] .lobos-badge {
+    background-color: #f7d4d7 !important;
+    color: #3e2221 !important;
+}
+
+/* Botões das Alcateias no Modo Escuro */
+[data-theme="dark"] .alcateia-header,
+[data-theme="dark"] .alcateia-number-title {
+    color: #e5adb3 !important;
+}
+[data-theme="dark"] .alcateia-icon svg {
+    stroke: #e5adb3 !important;
+}
+
+/* Isolar a última parte (CTA com logo) para usar a cor bege no Modo Escuro e quebrar o fundo marrom */
+[data-theme="dark"] .lobos-cta-section {
+    background-color: #F4EFEA !important;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50% + 1rem);
+    padding-right: calc(50vw - 50% + 1rem);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+/* Forçar o azul escuro original para não ficar ilegível sobre o fundo claro no Modo Escuro */
+[data-theme="dark"] .lobos-cta-section h3 {
+    color: #1E4D7B !important;
+}
+@media (min-width: 1200px) {
+    [data-theme="dark"] .lobos-cta-section {
+        padding-left: calc(50vw - 600px + 1rem);
+        padding-right: calc(50vw - 600px + 1rem);
+    }
+}
