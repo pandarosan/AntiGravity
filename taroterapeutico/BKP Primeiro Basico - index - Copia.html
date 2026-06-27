@@ -24,14 +24,14 @@
   <meta property="og:image:height" content="630">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="RAC-principal.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="../RAC-principal.jpg" type="image/x-icon">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   
   <!-- Estilos Específicos do Tarô Terapêutico -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Della+Respira&family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
     :root {
       --color-tarot: #C5A059;      /* Dourado Antigo (Tarô Terapêutico) */
@@ -42,11 +42,6 @@
     /* Aplicar a fonte Inter no corpo da página do Tarô */
     body.page-tarot {
       font-family: 'Inter', system-ui, sans-serif;
-      background-image: linear-gradient(rgba(250, 247, 242, 0.35), rgba(250, 247, 242, 0.35)), url('Fundo.jpg') !important;
-    }
-    
-    [data-theme="dark"] body.page-tarot {
-      background-image: linear-gradient(rgba(13, 23, 31, 0.7), rgba(13, 23, 31, 0.7)), url('Fundo.jpg') !important;
     }
 
     .page-tarot .section-title, .page-tarot h1, .page-tarot h2, .page-tarot h3 {
@@ -120,9 +115,9 @@
       box-shadow: var(--shadow-lg);
       transition: transform 0.5s ease;
     }
-    .tarot-card-mockup.card-1 { transform: rotate(-15deg) translateX(-40px); z-index: 1; background: url('Capa-Sol.jpg') center/cover no-repeat; }
-    .tarot-card-mockup.card-2 { transform: rotate(0deg) translateY(-20px); z-index: 3; border-color: var(--color-tarot); background: url('Capa-Imperatriz.jpg') center/cover no-repeat; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-    .tarot-card-mockup.card-3 { transform: rotate(15deg) translateX(40px); z-index: 2; background: url('Capa-Sacerdotisa.jpg') center/cover no-repeat; }
+    .tarot-card-mockup.card-1 { transform: rotate(-15deg) translateX(-40px); z-index: 1; }
+    .tarot-card-mockup.card-2 { transform: rotate(0deg) translateY(-20px); z-index: 3; background: rgba(197, 160, 89, 0.1); border-color: var(--color-tarot); }
+    .tarot-card-mockup.card-3 { transform: rotate(15deg) translateX(40px); z-index: 2; }
 
     /* Carrossel Técnico */
     .tarot-carousel-wrapper {
@@ -135,17 +130,13 @@
       overflow-x: auto;
       white-space: nowrap;
       gap: 1.5rem;
-      padding: 1rem 0.5rem 2rem 0.5rem;
+      padding: 1rem 2rem;
+      scroll-behavior: smooth;
       scrollbar-width: thin;
       scrollbar-color: var(--color-tarot) transparent;
-      cursor: grab;
-      scroll-behavior: auto !important;
-    }
-    .tarot-carousel-track:active {
-      cursor: grabbing;
     }
     .tarot-carousel-track::-webkit-scrollbar {
-      height: 8px;
+      height: 6px;
     }
     .tarot-carousel-track::-webkit-scrollbar-thumb {
       background-color: var(--color-tarot);
@@ -153,44 +144,32 @@
     }
     .tarot-card-item {
       flex: 0 0 auto;
-      width: 220px;
-      height: 360px;
-      background-color: #FFFFFF;
-      border: none;
-      border-radius: 15px;
+      width: 200px;
+      height: 340px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .tarot-card-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-color: var(--color-tarot);
+      box-shadow: var(--shadow-md);
     }
     .tarot-card-item img {
       width: 100%;
-      height: 290px !important;
-      min-height: auto !important;
+      height: 100%;
       object-fit: cover;
-      background-color: transparent !important;
-      border-bottom: none;
-      border-radius: 15px 15px 0 0;
     }
     .tarot-card-placeholder-text {
-      color: #0b1a30;
-      font-size: 1.15rem;
-      font-weight: 600;
-      font-family: 'Della Respira', serif;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      letter-spacing: 0px;
+      color: var(--color-tarot);
+      margin-top: 1rem;
     }
 
     /* Modal */
@@ -220,8 +199,6 @@
       position: relative;
       box-shadow: var(--shadow-lg);
       animation: modalFadeIn 0.3s ease;
-      max-height: 85vh;
-      overflow-y: auto;
     }
     @keyframes modalFadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -251,18 +228,6 @@
       line-height: 1.6;
       white-space: pre-wrap;
     }
-    @media (max-width: 768px) {
-      .tarot-modal-layout {
-        flex-direction: column !important;
-        text-align: center;
-      }
-      .tarot-modal-layout img {
-        max-width: 200px !important;
-      }
-      .tarot-modal-content {
-        padding: 1.5rem;
-      }
-    }
 
     /* Grid de Tiragens */
     .tiragens-grid {
@@ -285,89 +250,6 @@
     @media (max-width: 768px) {
       .tiragens-grid {
         grid-template-columns: 1fr;
-      }
-    }
-
-    /* Timeline / Dinâmica da Sessão */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      width: 2px;
-      background-color: var(--color-tarot);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.3;
-    }
-    .timeline-item {
-      padding: 0.25rem 0; /* Espaçamento reduzido drasticamente */
-      position: relative;
-      width: 50%;
-    }
-    .timeline-item:nth-child(odd) {
-      left: 0;
-      padding-right: 3rem;
-      text-align: right;
-    }
-    .timeline-item:nth-child(even) {
-      left: 50%;
-      padding-left: 3rem;
-    }
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background-color: var(--bg-primary);
-      border: 3px solid var(--color-tarot);
-      border-radius: 50%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .timeline-item:nth-child(odd)::after {
-      right: -8px;
-    }
-    .timeline-item:nth-child(even)::after {
-      left: -8px;
-    }
-    .timeline-item .time {
-      font-weight: 600;
-      color: var(--color-tarot);
-      margin-bottom: 0.2rem;
-      font-size: 1.1rem;
-    }
-    .timeline-item h4 {
-      font-size: 1.25rem;
-      color: var(--color-primary);
-      margin-bottom: 0.3rem;
-      font-family: var(--font-title);
-    }
-    .timeline-item p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 0;
-    }
-    @media (max-width: 768px) {
-      .timeline::before {
-        left: 0;
-      }
-      .timeline-item {
-        width: 100%;
-        padding-left: 2rem !important;
-        padding-right: 0 !important;
-        text-align: left !important;
-        padding-top: 0.5rem !important;
-        padding-bottom: 0.5rem !important;
-      }
-      .timeline-item:nth-child(odd)::after, 
-      .timeline-item:nth-child(even)::after {
-        left: -8px;
       }
     }
   </style>
@@ -451,8 +333,8 @@
 
       <nav>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="#hero" class="nav-link">Início</a></li>
-          <li><a href="../index.html#abordagem" class="nav-link" target="_blank">Psicoterapia</a></li>
+          <li><a href="../index.html#hero" class="nav-link">Início</a></li>
+          <li><a href="../index.html#abordagem" class="nav-link">Psicoterapia</a></li>
           <li><a href="#hero" class="nav-link active">Tarô Terapêutico</a></li>
           <li><a href="#metodologia" class="nav-link">Metodologia</a></li>
           <li><a href="#faq" class="nav-link">Dúvidas Frequentes</a></li>
@@ -503,10 +385,13 @@
         <div class="hero-content">
           <!-- Área da Headline (Bússola e Transição) -->
           <h1 class="hero-title">O Tarô como bússola e espelho do momento presente.</h1>
+          <p class="hero-text" style="font-size: 1.25rem;">
+            Um convite para decodificar os sinais que a mente consciente tenta mascarar com o cansaço ou a estagnação. 
+          </p>
           
           <!-- Área da Sub-headline (Sessão Única) -->
-          <h2 style="font-size: 1.25rem; color: var(--text-secondary); font-weight: normal; margin-bottom: 2.5rem; font-family: var(--font-body); line-height: 1.6;">
-            Um convite para mentes cansadas de rodar em modo de sobrevivência olharem além do que a razão tenta mascarar. Através de um alinhamento arquetípico em sessão única, traduzimos em clareza estratégica os sinais de estagnação ou névoa, dúvida e/ou conflito, oferecendo uma direção segura para quem enfrenta momentos de escolhas, crises ou profundas mudanças na vida.
+          <h2 style="font-size: 1.15rem; color: var(--text-secondary); font-weight: normal; margin-bottom: 2.5rem; font-family: var(--font-body);">
+            Intervenção pontual de alinhamento arquetípico para momentos de transição de vida.
           </h2>
 
           <!-- CTA Principal -->
@@ -557,155 +442,44 @@
       <h2 class="section-title">A Fusão de Jung, a Psicologia Analítica e o Tarô</h2>
       
       <div class="manifesto-content" style="text-align: justify; margin-top: 3rem;">
-        <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem; text-align: justify;">
-          Fundamentado na clássica obra de Sallie Nichols, <em>'Jung e o Tarô — Uma Jornada Arquetípica'</em> — fruto de seus estudos no Instituto C. G. Jung de Zurique —, o uso das lâminas em nosso set terapêutico afasta-se de qualquer prática de adivinhação futurista. O Tarô atua como um poderoso mapa projetivo e revelador da dinâmica do Inconsciente Coletivo e dos Arquétipos universais.
-        </p>
-        <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem; text-align: justify;">
-          Através do conceito-chave como a <strong>Individuação</strong> (o resgate da sua totalidade) ou ainda de <strong>Sincronicidade</strong> e do resgate da <strong>Imaginação Ativa</strong>(o diálogo direto com seus conteúdos internos), ou seja, as imagens arquetípicas que espelham a sua mente universal, bem como, os símbolos exatos de que a sua psique necessita são trazidos à superfície. O carrossel abaixo apresenta de forma ilustrativa apenas os <strong>Arcanos Maiores</strong> com suas respectivas indicações arquetípicas e olhar analítico junguiano. No entanto, é fundamental destacar que todas as sessões de abordagem terapêutica contemplarão todas as 78 cartas do Tarô <strong>Rider Waite Smith</strong> e suas respectivas funções arquetípicas/simbólicas, conforme os temas e assuntos que aflorarem espontaneamente no seu processo individual. O arsenal analítico completo é composto por: os Arcanos Maiores (movimentos macro e profundos da alma); os Arcanos Menores divididos em sua numerados (etapas e estágios no tempo e na matéria, ou seja, o cotidiano); as Cartas da Corte (atitude e postura prática diante da vida); e os Naipes, que representam os quatro elementos da natureza (Terra, Ar, Água e Fogo) e as quatro áreas fundamentais da experiência humana.
+        <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem;">
+          Com âncora na clássica obra <em>'Jung e o Tarô — Uma Jornada Arquetípica'</em>, o uso das lâminas em nosso set terapêutico afasta-se de qualquer prática de adivinhação. O Tarô atua como um revelador da dinâmica do Inconsciente Coletivo e dos Arquétipos universais.
         </p>
         
         <blockquote class="manifesto-quote glass-card" style="margin: 3rem 0; padding: 2.5rem; text-align: center; border-left: 4px solid var(--color-tarot);">
-          "As cartas não surgem por mero sorteio; elas são extraídas através de uma escolha consciente do próprio cliente ou pela permissão concedida à analista que conduz o baralho em mãos. Sob a luz da Sincronicidade de Carl Gustav Jung, esse ato conecta o momento presente aos símbolos exatos de que a sua psique necessita para trazer o invisível à superfície."
+          "As cartas não surgem por mero sorteio; elas são extraídas através de uma escolha consciente do próprio cliente ou pela outorga outorgada à analista que conduz o baralho em mãos. Sob a luz da Sincronicidade de Carl Gustav Jung, esse ato conecta o momento presente aos símbolos exatos de que a sua psique necessita para trazer o invisível à superfície."
         </blockquote>
       </div>
     </div>
     
     <!-- O Carrossel Técnico (Estrutura Completa) -->
-    <div style="text-align: center; margin-top: 2rem;">
-      <h3 style="color: var(--color-tarot); font-size: 1.5rem; font-weight: 500; margin-bottom: 0;">Arcanos Maiores - Rider Waite Smith</h3>
-    </div>
-    <div class="tarot-carousel-wrapper mt-12" style="margin-top: 1.5rem;">
-      <div class="tarot-carousel-track" id="tarot-carousel">
+    <div class="tarot-carousel-wrapper mt-12">
+      <div class="tarot-carousel-track" id="tarot-carousel" style="display: flex; overflow-x: auto; white-space: nowrap;">
         
-        <!-- 0. O LOUCO -->
-        <div class="tarot-card-item" onclick="openModal('O Louco', 'O arquétipo do passo no vazio. Representa o momento em que a mente lógica não encontra respostas nas estruturas antigas e a psique exige um voto de confiança no desconhecido. Ideal para mapear o início absoluto de transições de carreira ou crises de identidade onde os velhos papéis já não servem mais.')">
-          <img src="O-Louco.jpg" loading="lazy" alt="O Louco" style="background-color: #EEE; min-height: 100%;">
+        <!-- Exemplo de Carta do Carrossel (Componente) -->
+        <div class="tarot-card-item" onclick="openModal('O Louco', 'Espaço para o texto explicativo do arquétipo O Louco...')">
+          <!-- A imagem será injetada aqui -->
+          <img src="placeholder.jpg" loading="lazy" alt="O Louco" style="background-color: #EEE; min-height: 100%;">
           <div class="tarot-card-placeholder-text">O Louco</div>
         </div>
-
-        <!-- I. O MAGO -->
-        <div class="tarot-card-item" onclick="openModal('O Mago', 'O direcionamento da vontade. Simboliza a capacidade de canalizar recursos mentais, técnicos e emocionais dispersos em um objetivo claro. No set clínico, ajuda a avaliar se você está subutilizando suas ferramentas ou se falta foco estratégico para materializar suas ideias.')">
-          <img src="O-Mago.jpg" loading="lazy" alt="O Mago" style="background-color: #EEE; min-height: 100%;">
+        
+        <div class="tarot-card-item" onclick="openModal('O Mago', 'Espaço para o texto explicativo do arquétipo O Mago...')">
+          <img src="placeholder.jpg" loading="lazy" alt="O Mago" style="background-color: #EEE; min-height: 100%;">
           <div class="tarot-card-placeholder-text">O Mago</div>
         </div>
-
-        <!-- II. A PAPISA / A SACERDOTISA -->
-        <div class="tarot-card-item" onclick="openModal('A Sacerdotisa', 'A incubação do inconsciente e a intuição profunda. Representa a necessidade de pausar a ação externa para ouvir a sabedoria interna. No ambiente corporativo, aponta para a importância de guardar segredo estratégico, observar os bastidores e aguardar o tempo certo de maturação psíquica.')">
-          <img src="A-Sacerdotisa.jpg" loading="lazy" alt="A Sacerdotisa" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Sacerdotisa</div>
-        </div>
-
-        <!-- III. A IMPERATRIZ -->
-        <div class="tarot-card-item" onclick="openModal('A Imperatriz', 'O princípio da fertilidade, criatividade e abundância material. Indica momentos de grande potencial gerador, onde projetos ganham corpo e forma. Clinicamente, ajuda a avaliar sua conexão com o prazer de realizar e com a capacidade de nutrir suas próprias ideias sem esgotar sua energia.')">
-          <img src="A-Imperatriz.jpg" loading="lazy" alt="A Imperatriz" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Imperatriz</div>
-        </div>
-
-        <!-- IV. O IMPERADOR -->
-        <div class="tarot-card-item" onclick="openModal('O Imperador', 'O arquétipo da estrutura, ordem, limites e autoridade. Essencial para líderes, este arcano avalia como você lida com o poder, com a estabilidade e com a criação de regras. No set clínico, revela se há excesso de rigidez inflexível ou falta de fundações sólidas nos seus negócios e vida pessoal.')">
-          <img src="O-Imperador.jpg" loading="lazy" alt="O Imperador" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Imperador</div>
-        </div>
-
-        <!-- V. O PAPA / O HIEROFANTE -->
-        <div class="tarot-card-item" onclick="openModal('O Hierofante', 'A aliança com as structures institucionais, mentoria e valores éticos. Representa a busca por sentido profundo e conformidade com leis superiores. Ajuda a diagnosticar se as suas escolhas atuais estão alinhadas com seu código moral interno ou se você está preso a dogmas sociais sufocantes.')">
-          <img src="O-Hierofante.jpg" loading="lazy" alt="O Hierofante" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Hierofante</div>
-        </div>
-
-        <!-- VI. OS ENAMORADOS -->
-        <div class="tarot-card-item" onclick="openModal('Os Enamorados', 'O arquétipo da escolha consciente e do alinhamento de valores. Vai muito além dos relacionamentos: indica encruzilhadas existenciais onde decidir implica abrir mão de algo seguro. Clinicamente, aponta se o seu ego está em conflito ou se a sua intuição e razão estão finalmente prontas para cooperar.')">
-          <img src="Os-Enamorados.jpg" loading="lazy" alt="Os Enamorados" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">Os Enamorados</div>
-        </div>
-
-        <!-- VII. O CARRO -->
-        <div class="tarot-card-item" onclick="openModal('O Carro', 'O direcionamento focado do ego e o triunfo sobre forças opostas. Representa o domínio técnico, o avanço veloz e a determinação em alcançar metas. Avalia se o seu direcionamento está equilibrado ou se você está conduzindo seus projetos com um esforço muscular excessivo que flerta com o burnout.')">
-          <img src="O-Carro.jpg" loading="lazy" alt="O Carro" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Carro</div>
-        </div>
-
-        <!-- VIII. A FORÇA -->
-        <div class="tarot-card-item" onclick="openModal('A Força', 'O domínio e a integração dos impulsos instintivos pela consciência. Não se trata de força física ou repressão, mas de resiliência psicológica e inteligência emocional. Mostra a sua capacidade de domesticar a ansiedade, o medo ou a exaustão com paciência, suavidade e firmeza interna.')">
-          <img src="A-Forca.jpg" loading="lazy" alt="A Força" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Força</div>
-        </div>
-
-        <!-- IX. O EREMITA -->
-        <div class="tarot-card-item" onclick="openModal('O Eremita', 'A necessidade de isolamento reflexivo e desaceleração do tempo cronológico. É o farol que ilumina o mundo interno. Para profissionais saturados, este arcano é o chamado urgente para silenciar o barulho do mercado e buscar as respostas que só a maturidade e a solidão produtiva podem dar.')">
-          <img src="O-Eremita.jpg" loading="lazy" alt="O Eremita" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Eremita</div>
-        </div>
-
-        <!-- X. A RODA DA FORTUNA -->
-        <div class="tarot-card-item" onclick="openModal('A Roda da Fortuna', 'A impermanência, os ciclos de mudança inevitáveis e a quebra de controle do ego. Mostra que o ambiente externo está mudando e exige adaptabilidade imediata. No viés analítico, ajuda a identificar se você está resistindo ao fluxo natural de transição ou tentando controlar variáveis impossíveis.')">
-          <img src="A-Roda-da-Fortuna.jpg" loading="lazy" alt="A Roda da Fortuna" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Roda da Fortuna</div>
-        </div>
-
-        <!-- XI. A JUSTIÇA -->
-        <div class="tarot-card-item" onclick="openModal('A Justiça', 'O princípio da autorregulação compensatória e da clareza lógica. Representa a necessidade de avaliar a realidade de forma fria, objetiva e imparcial, colhendo exatamente as consequências dos atos passados. Traz o discernimento analítico necessário para cortar excessos emocionais e organizar contratos de vida.')">
-          <img src="A-Justica.jpg" loading="lazy" alt="A Justiça" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Justiça</div>
-        </div>
-
-        <!-- XII. O ENFORCADO / O PENDURADO -->
-        <div class="tarot-card-item" onclick="openModal('O Pendurado', 'O sacrifício temporário do ego e a inversão de perspectiva. Quando este arcano surge, os velhos métodos de ação ativa falham, exigindo uma pausa compulsória para olhar a situação sob um novo ângulo. É o momento de abrir mão do controle estrito para que um novo entendimento germine.')">
-          <img src="O-Pendurado.jpg" loading="lazy" alt="O Pendurado" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Pendurado</div>
-        </div>
-
-        <!-- XIII. A MORTE -->
-        <div class="tarot-card-item" onclick="openModal('A Morte', 'O arquétipo da transformação profunda, encerramento de ciclos e desapego do passado. Desprovido de sentido literal, indica a necessidade crucial de deixar morrer estruturas antigas, cargos ou identidades ultrapassadas para abrir espaço para o nascimento do novo. É o corte definitivo do que já caducou.')">
-          <img src="A-Morte.jpg" loading="lazy" alt="A Morte" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Morte</div>
-        </div>
-
-        <!-- XIV. A TEMPERANÇA -->
-        <div class="tarot-card-item" onclick="openModal('A Temperança', 'A alquimia interna, equilíbrio dinâmico e regeneração psíquica. Simboliza a harmonização de forças opostas e a cura do estresse crônico. No set analítico, indica o processo de reconciliação com o seu próprio ritmo, promovendo paciência e estabilização dos fluxos mentais.')">
-          <img src="A-Temperanca.jpg" loading="lazy" alt="A Temperança" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Temperança</div>
-        </div>
-
-        <!-- XV. O DIABO -->
-        <div class="tarot-card-item" onclick="openModal('O Diabo', 'O confronto com a Sombra junguiana, projeções e fixações obsessivas. Revela onde você está aprisionado por ambições desmedidas, medo do fracasso material ou dependências emocionais. Iluminar este arquétipo desfaz os nós invisíveis que sabotam sua verdadeira liberdade de escolha.')">
-          <img src="O-Diabo.jpg" loading="lazy" alt="O Diabo" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Diabo</div>
-        </div>
-
-        <!-- XVI. A TORRE -->
-        <div class="tarot-card-item" onclick="openModal('A Torre', 'A quebra abrupta de falsas seguranças e ilusões do ego. Representa crises repentinas que desmoronam estruturas rígidas que aprisionavam a psique. Embora desafiadora, A Torre funciona como uma intervenção libertadora da realidade, limpando o terreno para construções mais autênticas.')">
-          <img src="A-Torre.jpg" loading="lazy" alt="A Torre" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Torre</div>
-        </div>
-
-        <!-- XVII. A ESTRELA -->
-        <div class="tarot-card-item" onclick="openModal('A Estrela', 'O resgate da esperança e o fluxo do Self. Após períodos de profundo estresse, exaustão ou desmoronamento de certezas, A Estrela surge como um bálsamo do inconsciente indicando o caminho da cura integrativa, a recuperação da serenidade e o alinhamento com seu propósito real.')">
-          <img src="A-Estrela.jpg" loading="lazy" alt="A Estrela" style="background-color: #EEE; min-height: 100%;">
+        
+        <div class="tarot-card-item" onclick="openModal('A Estrela', 'Espaço para o texto explicativo do arquétipo A Estrela...')">
+          <img src="placeholder.jpg" loading="lazy" alt="A Estrela" style="background-color: #EEE; min-height: 100%;">
           <div class="tarot-card-placeholder-text">A Estrela</div>
         </div>
-
-        <!-- XVIII. A LUA -->
-        <div class="tarot-card-item" onclick="openModal('A Lua', 'A imersão nas águas profundas do inconsciente, névoas mentais e medos arcaicos. Indica momentos de incerteza onde a lógica falha e as ilusões ou projeções turvam a visão. No set clínico, serve para decodificar ansiedades ocultas, sonhos intensos e resgatar a clareza perdida na névoa.')">
-          <img src="A-Lua.jpg" loading="lazy" alt="A Lua" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">A Lua</div>
-        </div>
-
-        <!-- XIX. O SOL -->
-        <div class="tarot-card-item" onclick="openModal('O Sol', 'A clareza absoluta e o fim das névoas mentais. Representa a consciência integrativa, onde os conflitos ocultos são iluminados e resolvidos. É a energia de vitalidade reencontrada, trazendo o sucesso, a assertividade nas decisões corporativas e a segurança pessoal que estavam sufocados pelo cansaço.')">
-          <img src="O-Sol.jpg" loading="lazy" alt="O Sol" style="background-color: #EEE; min-height: 100%;">
+        
+        <div class="tarot-card-item" onclick="openModal('O Sol', 'Espaço para o texto explicativo do arquétipo O Sol...')">
+          <img src="placeholder.jpg" loading="lazy" alt="O Sol" style="background-color: #EEE; min-height: 100%;">
           <div class="tarot-card-placeholder-text">O Sol</div>
         </div>
 
-        <!-- XX. O JULGAMENTO -->
-        <div class="tarot-card-item" onclick="openModal('O Julgamento', 'O despertar para uma nova consciência e o chamado à individuação. Indica um momento de prestação de contas com a própria história, onde você é convidado a abandonar o túmulo de velhos hábitos. É o renascimento psicológico que exige uma resposta clara à sua verdadeira vocação.')">
-          <img src="O-Julgamento.jpg" loading="lazy" alt="O Julgamento" style="background-color: #EEE; min-height: 100%;">
-          <div class="tarot-card-placeholder-text">O Julgamento</div>
-        </div>
-
-        <!-- XXI. O MUNDO -->
-        <div class="tarot-card-item" onclick="openModal('O Mundo', 'A individuação e a conclusão bem-sucedida de um ciclo. Indica o estado de totalidade psíquica onde os opostos se reconciliam. No mapeamento do seu momento atual, aponta para a colheita amadurecida de um longo esforço e a preparação segura para um novo nível de expansão.')">
-          <img src="O-Mundo.jpg" loading="lazy" alt="O Mundo" style="background-color: #EEE; min-height: 100%;">
+        <div class="tarot-card-item" onclick="openModal('O Mundo', 'Espaço para o texto explicativo do arquétipo O Mundo...')">
+          <img src="placeholder.jpg" loading="lazy" alt="O Mundo" style="background-color: #EEE; min-height: 100%;">
           <div class="tarot-card-placeholder-text">O Mundo</div>
         </div>
 
@@ -720,41 +494,40 @@
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle" style="color: var(--color-tarot);">Arsenal Analítico</span>
-        <h2 class="section-title">Alguns Métodos de Jogos</h2>
-        <p class="section-desc">Uma avaliação sensível, técnica e personalizada. O método ideal para mapear o seu momento atual será diagnosticado em conjunto, após os primeiros 30 minutos de nossa conversa clínica e acolhimento analítico.</p>
+        <h2 class="section-title">Os 5 Métodos de Jogo</h2>
+        <p class="section-desc">Um tencionamento cirúrgico e personalizado. O método ideal para o seu momento será diagnosticado pela analista após os primeiros 30 minutos de conversa analítica.</p>
       </div>
       
       <div class="tiragens-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
         
         <!-- Card 1 -->
         <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Cruz Celta (10 Cartas) — Radiografia completa da alma (do inconsciente profundo ao ambiente externo).</h4>
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Card 1: Cruz Celta (10 Cartas) — Radiografia completa da alma (do inconsciente profundo ao ambiente externo).</h4>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">Uma leitura multidimensional que analisa a sua queixa em profundidade. Entendemos as motivações inconscientes, as influências do passado recente, o seu nível de consciência sobre o problema e as perspectivas de futuro se o padrão atual for mantido.</p>
         </div>
 
         <!-- Card 2 -->
         <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Mandala Astrológica (12 Cartas) — Análise sistêmica cruzando as 12 casas zodiacais e áreas da vida.</h4>
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Card 2: Mandala Astrológica (12 Cartas) — Análise sistêmica cruzando as 12 casas zodiacais e áreas da vida.</h4>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">Ideal para mapear a estrutura global do seu momento. Cruzamos a simbologia do Tarô com as 12 casas astrológicas para diagnosticar áreas como finanças, relacionamentos familiares, carreira, saúde mental e propósito.</p>
         </div>
 
         <!-- Card 3 -->
         <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Tiragem de Aniversário (7 Cartas) — Mapa de navegação e desafios para o novo ciclo anual.</h4>
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Card 3: Tiragem de Aniversário (7 Cartas) — Mapa de navegação e desafios para o novo ciclo anual.</h4>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">O seu mapa de navegação para o novo ciclo solar. Mapeamos os recursos internos que estão à sua disposição, os desafios centrais do seu ano e o principal aprendizado que a sua alma busca amadurecer.</p>
         </div>
 
         <!-- Card 4 -->
         <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Tiragem de Autoconhecimento (4 Arcanos Maiores + 4 Arcanos Menores) — Estrutura do Self cruzada com o cotidiano.</h4>
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Card 4: Tiragem de Autoconhecimento (4 Arcanos Maiores + 4 Arcanos Menores) — Estrutura do Self cruzada com o cotidiano.</h4>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">Uma imersão rápida na estrutura do seu Self cruzada com a sua realidade cotidiana material. Excelente para quem busca identificar bloqueios imediatos de autoconfiança ou alinhar o ego à alma.</p>
         </div>
 
         <!-- Card 5 -->
         <div class="tiragem-card featured-tiragem glass-card" style="grid-column: 1 / -1; border-left: 4px solid var(--color-tarot);">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Momento Atual (3 Cartas Combinadas) — Tríade da Alma</h4>
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Card 5: Momento Atual (3 Cartas Combinadas) — Tríade da Alma</h4>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Geralmente aplicado como complemento de outros jogos dependendo do tempo.<br>
             (Carta 1: Arcano Maior/Movimento da Alma; <br>
             Carta 2: Arcano Menor Numerado/Etapa na matéria; <br>
             Carta 3: Arcano da Corte/Atitude diante da vida).
@@ -766,44 +539,9 @@
   </section>
 
   <!-- ---------------------------------------------------------------------
-       SEÇÃO A DINÂMICA DA SESSÃO (TIMELINE)
-       --------------------------------------------------------------------- -->
-  <section class="dynamics-section" style="padding: 4rem 0; background-color: var(--bg-primary);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" style="color: var(--color-tarot);">Passo a Passo</span>
-        <h2 class="section-title">A Dinâmica da Sessão</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">00 - 30 min</div>
-          <div class="content">
-            <h4>Acolhimento e Diagnóstico Clínico</h4>
-            <p>Escuta ativa junguiana da sua queixa principal.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="time">30 - 75 min</div>
-          <div class="content">
-            <h4>O Mapeamento Arquetípico</h4>
-            <p>Investigação profunda de pontos cegos através de um layout estruturado de Tarô Terapêutico.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="time">75 - 90 min</div>
-          <div class="content">
-            <h4>Plano de Ação Estratégico</h4>
-            <p>Definição clara de 3 tarefas práticas para você recuperar a clareza e destravar a sua rotina.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------------------------------------------------------------------
        SEÇÃO LOGÍSTICA E INVESTIMENTO
        --------------------------------------------------------------------- -->
-  <section class="tarot-pricing" id="agendamento" style="padding: 6rem 0; background-color: var(--bg-secondary);">
+  <section class="tarot-pricing" id="agendamento" style="padding: 6rem 0;">
     <div class="container">
         <!-- Mantendo a replicação exata e estrutura simplificada solicitada -->
         <div class="glass-card" style="max-width: 600px; margin: 0 auto; padding: 3rem; text-align: center; border-color: var(--color-tarot);">
@@ -939,149 +677,32 @@
   <div id="tarotModal" class="tarot-modal">
     <div class="tarot-modal-content">
       <button class="tarot-modal-close" onclick="closeModal()">&times;</button>
-      <div class="tarot-modal-layout" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-        <img id="modalImage" src="" alt="Carta" style="width: 100%; max-width: 250px; border-radius: 10px; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-        <div class="tarot-modal-text">
-          <h2 class="tarot-modal-title" id="modalTitle">Título da Carta</h2>
-          <p class="tarot-modal-desc" id="modalDesc">Descrição do Arquétipo aparecerá aqui.</p>
-        </div>
-      </div>
+      <h2 class="tarot-modal-title" id="modalTitle">Título da Carta</h2>
+      <p class="tarot-modal-desc" id="modalDesc">Descrição do Arquétipo aparecerá aqui.</p>
     </div>
   </div>
 
   <script>
-    let isModalOpen = false;
-
-    // JS para o Modal do Tarô
+    // JS Simples para o Modal do Tarô
     function openModal(title, desc) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalDesc').innerText = desc;
-      
-      let imageName = title.replace(/\s+/g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "") + '.jpg';
-      document.getElementById('modalImage').src = imageName;
-
       document.getElementById('tarotModal').classList.add('active');
-      document.body.style.overflow = 'hidden'; 
-      isModalOpen = true;
+      document.body.style.overflow = 'hidden'; // Evita scroll atrás
     }
 
     function closeModal() {
       document.getElementById('tarotModal').classList.remove('active');
       document.body.style.overflow = '';
-      isModalOpen = false;
     }
 
+    // Fechar ao clicar fora
     window.onclick = function(event) {
       var modal = document.getElementById('tarotModal');
       if (event.target == modal) {
         closeModal();
       }
     }
-
-    // Atualiza automaticamente o ano de Copyright no rodapé
-    const copyrightElem = document.getElementById('copyright-year');
-    if (copyrightElem) {
-      copyrightElem.textContent = new Date().getFullYear();
-    }
-
-    // ─── CARROSSEL DEFINITIVO: AUTO-SCROLL + DRAG UNIFICADO + SCROLLBAR ───
-    window.addEventListener('load', function() {
-      const track = document.getElementById('tarot-carousel');
-      if (!track) return;
-
-      // Duplica o conteúdo para criar o efeito infinito visual
-      track.innerHTML += track.innerHTML;
-
-      let paused = false;   
-      let isDragging = false;
-      let isActuallyDragging = false;
-      let startX = 0;
-      let scrollStart = 0;
-      
-      const halfWidth = track.scrollWidth / 2;
-      let pos = halfWidth; 
-      track.scrollLeft = pos;
-
-      // RAF Loop para o Giro Contínuo Automático
-      const SPEED = 0.8; // Velocidade em pixels por frame
-      function tick() {
-        if (!paused && !isDragging && !isModalOpen) {
-          pos += SPEED;
-          track.scrollLeft = pos;
-        }
-
-        // Reset silencioso nas bordas para manter o loop infinito perfeito
-        if (track.scrollLeft >= halfWidth * 1.5) {
-          pos -= halfWidth;
-          track.scrollLeft = pos;
-        } else if (track.scrollLeft <= halfWidth * 0.5) {
-          pos += halfWidth;
-          track.scrollLeft = pos;
-        }
-
-        requestAnimationFrame(tick);
-      }
-
-      // Pausa o giro ao passar o mouse por cima
-      track.addEventListener('mouseenter', () => { paused = true; });
-      track.addEventListener('mouseleave', () => { 
-        if (!isDragging) paused = false; 
-      });
-
-      // Eventos de Ponteiro Unificados (Mouse + Touch de Celular)
-      track.addEventListener('pointerdown', (e) => {
-        isDragging = true;
-        isActuallyDragging = false; // Reseta o estado de arrasto real
-        paused = true;
-        track.style.cursor = 'grabbing';
-        startX = e.pageX - track.offsetLeft;
-        scrollStart = track.scrollLeft;
-      });
-
-      window.addEventListener('pointermove', (e) => {
-        if (!isDragging) return;
-        const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.2; // Multiplicador de sensibilidade
-        
-        if (Math.abs(walk) > 5) {
-          isActuallyDragging = true; // Se moveu mais de 5px, é um arrasto, não um clique
-        }
-
-        if (isActuallyDragging) {
-          e.preventDefault();
-          track.scrollLeft = scrollStart - walk;
-          pos = track.scrollLeft; // Sincroniza a posição do auto-scroll com o arrasto
-        }
-      }, { passive: false });
-
-      const stopDragging = (e) => {
-        if (!isDragging) return;
-        isDragging = false;
-        paused = false;
-        track.style.cursor = 'grab';
-        pos = track.scrollLeft;
-      };
-
-      window.addEventListener('pointerup', stopDragging);
-      window.addEventListener('pointercancel', stopDragging);
-
-      // Previne que o card abra caso tenha ocorrido um arrasto real
-      track.addEventListener('click', (e) => {
-        if (isActuallyDragging) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      }, true); // Use a fase de captura para barrar o clique antes de chegar no card
-
-      // Permite que a barra de rolagem manual também atualize a posição do script
-      track.addEventListener('scroll', () => {
-        if (!paused && !isDragging) return; 
-        pos = track.scrollLeft;
-      });
-
-      // Inicia o loop
-      requestAnimationFrame(tick);
-    });
   </script>
 
   <!-- ---------------------------------------------------------------------
@@ -1101,9 +722,10 @@
           <h4 class="footer-nav-title">Navegação</h4>
           <ul class="footer-nav-links">
             <li><a href="../index.html">Início</a></li>
-            <li><a href="../index.html#abordagem" target="_blank">Psicoterapia</a></li>
+            <li><a href="../index.html#abordagem">Psicoterapia</a></li>
             <li><a href="#hero">Tarô Terapêutico</a></li>
             <li><a href="#metodologia">Métodos & Valores</a></li>
+            <li><a href="../index.html#biografia">Sobre Mim</a></li>
           </ul>
         </div>
 
@@ -1153,7 +775,7 @@
   </button>
 
   <!-- Scripts -->
-  <script src="script.js" defer></script>
+  <script src="../script.js" defer></script>
 </body>
 
 </html>
