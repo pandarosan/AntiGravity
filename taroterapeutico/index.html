@@ -37,6 +37,11 @@
       --color-tarot: #C5A059;      /* Dourado Antigo (Tarô Terapêutico) */
       --color-tarot-btn: #B91C1C;  /* Vinho/Vermelho sofisticado */
       --color-tarot-title: #1E4D7B;/* Azul Clínico/Real */
+      --bg-body-image: linear-gradient(rgba(250, 247, 242, 0.35), rgba(250, 247, 242, 0.35)), url('Fundo.jpg');
+    }
+
+    [data-theme="dark"] {
+      --bg-body-image: linear-gradient(rgba(13, 23, 31, 0.7), rgba(13, 23, 31, 0.7)), url('Fundo.jpg');
     }
 
     /* Aplicar a fonte Inter no corpo da página do Tarô */
@@ -446,7 +451,7 @@
 
       <nav>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="../index.html#hero" class="nav-link">Início</a></li>
+          <li><a href="#hero" class="nav-link">Início</a></li>
           <li><a href="../index.html#abordagem" class="nav-link" target="_blank">Psicoterapia</a></li>
           <li><a href="#hero" class="nav-link active">Tarô Terapêutico</a></li>
           <li><a href="#metodologia" class="nav-link">Metodologia</a></li>
