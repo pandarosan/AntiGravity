@@ -989,6 +989,7 @@
 
       let paused = false;   
       let isDragging = false;
+      let isActuallyDragging = false;
       let startX = 0;
       let scrollStart = 0;
       
@@ -1025,21 +1026,28 @@
       // Eventos de Ponteiro Unificados (Mouse + Touch de Celular)
       track.addEventListener('pointerdown', (e) => {
         isDragging = true;
+        isActuallyDragging = false; // Reseta o estado de arrasto real
         paused = true;
         track.style.cursor = 'grabbing';
-        track.setPointerCapture(e.pointerId);
         startX = e.pageX - track.offsetLeft;
         scrollStart = track.scrollLeft;
       });
 
-      track.addEventListener('pointermove', (e) => {
+      window.addEventListener('pointermove', (e) => {
         if (!isDragging) return;
-        e.preventDefault();
         const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.2; // Multiplicador de sensibilidade do arrasto
-        track.scrollLeft = scrollStart - walk;
-        pos = track.scrollLeft; // Sincroniza a posição do auto-scroll com o arrasto
-      });
+        const walk = (x - startX) * 1.2; // Multiplicador de sensibilidade
+        
+        if (Math.abs(walk) > 5) {
+          isActuallyDragging = true; // Se moveu mais de 5px, é um arrasto, não um clique
+        }
+
+        if (isActuallyDragging) {
+          e.preventDefault();
+          track.scrollLeft = scrollStart - walk;
+          pos = track.scrollLeft; // Sincroniza a posição do auto-scroll com o arrasto
+        }
+      }, { passive: false });
 
       const stopDragging = (e) => {
         if (!isDragging) return;
@@ -1049,8 +1057,16 @@
         pos = track.scrollLeft;
       };
 
-      track.addEventListener('pointerup', stopDragging);
-      track.addEventListener('pointercancel', stopDragging);
+      window.addEventListener('pointerup', stopDragging);
+      window.addEventListener('pointercancel', stopDragging);
+
+      // Previne que o card abra caso tenha ocorrido um arrasto real
+      track.addEventListener('click', (e) => {
+        if (isActuallyDragging) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true); // Use a fase de captura para barrar o clique antes de chegar no card
 
       // Permite que a barra de rolagem manual também atualize a posição do script
       track.addEventListener('scroll', () => {
