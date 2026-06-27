@@ -512,6 +512,150 @@
       margin-right: auto;
       text-align: center;
     }
+    /* Seções Novas: Sobre Mim e Contato */
+    .about-section {
+      padding: 6rem 0;
+      background-color: var(--bg-primary);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 120ch;
+      margin: 0 auto;
+    }
+    .about-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      background: var(--bg-card);
+    }
+    .about-image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .about-text h3 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-tarot-title);
+    }
+    .about-text p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .contact-section {
+      padding: 6rem 0;
+      background-color: var(--bg-secondary);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      max-width: 120ch;
+      margin: 0 auto;
+    }
+    .contact-info h3 {
+      font-family: var(--font-title);
+      font-size: 2.4rem;
+      color: var(--color-tarot-title);
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .info-icon {
+      background: var(--bg-card);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      padding: 0.8rem;
+      border-radius: 12px;
+      color: var(--color-tarot);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-text-block h5 {
+      font-size: 1.1rem;
+      color: var(--color-tarot-title);
+      margin: 0 0 0.2rem 0;
+      font-weight: 600;
+    }
+    .info-text-block p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--bg-primary);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      border-radius: 10px;
+      padding: 0.9rem;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-tarot);
+      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    @media (max-width: 992px) {
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-image-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
   </style>
 
   <!-- Dados Estruturados em JSON-LD para Otimização de IAs (GEO) -->
@@ -593,12 +737,13 @@
 
       <nav>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="#hero" class="nav-link">Início</a></li>
-          <li><a href="../index.html#abordagem" class="nav-link" target="_blank">Psicoterapia</a></li>
-          <li><a href="#hero" class="nav-link active">Tarô Terapêutico</a></li>
-          <li><a href="#metodologia" class="nav-link">Metodologia</a></li>
-          <li><a href="#faq" class="nav-link">Dúvidas Frequentes</a></li>
-          <li><a href="#agendamento" class="nav-link">Agendar Sessão</a></li>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../index.html#abordagem" target="_blank">Psicoterapia</a></li>
+          <li><a href="#hero" class="active">Tarô Terapêutico</a></li>
+          <li><a href="#metodologia">Metodologia</a></li>
+          <li><a href="#sobre-mim">Sobre Mim</a></li>
+          <li><a href="#faq">Dúvidas Frequentes</a></li>
+          <li><a href="#contato" class="btn btn-outline btn-outline-tarot">Contato</a></li>
         </ul>
       </nav>
 
@@ -1087,6 +1232,40 @@
   <!-- ---------------------------------------------------------------------
        SEÇÃO LOGÍSTICA E INVESTIMENTO (FUNDO INTEGRADO)
        --------------------------------------------------------------------- -->
+  <!-- ---------------------------------------------------------------------
+       SEÇÃO SOBRE MIM (BIOGRAFIA INTEGRADA)
+       --------------------------------------------------------------------- -->
+  <section class="about-section" id="sobre-mim">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <img src="Quem-Sou.png" alt="Rosangela Corrêa" onerror="this.src='RAC.png'">
+        </div>
+        <div class="about-text">
+          <span class="section-subtitle" style="color: var(--color-tarot);">Quem Sou</span>
+          <h3>Visão sistêmica e um olhar profundo a serviço da sua jornada.</h3>
+          
+          <p>
+            Com mais de 21 anos de prática clínica fundamentada na abordagem Junguiana e Psicossomática, dedico meu trabalho a guiar indivíduos que buscam clareza, autonomia e o resgate de sua própria força de autorregulação. Minha trajetória, no entanto, consolidou-se através de um percurso singular: atuei por 13 anos no universo da Tecnologia da Informação como analista de sistemas e gerente de projetos em grandes multinacionais. Essa transição diagonal de carreira me proporcionou uma bagagem experiencial única.
+          </p>
+          <p>
+            Compreendo perfeitamente as pressões, o pragmatismo e as dinâmicas do meio corporativo, bem como a coragem exigida para recalcular rotas de vida. É por isso que, em meu set terapêutico, não existem "pacientes" passivos, mas sim <strong>Clientes Ativos</strong> — indivíduos convidados a tomar posse de sua história e atuar conscientemente em seu processo de desenvolvimento.
+          </p>
+          <p><strong>Por que o Tarô Terapêutico?</strong></p>
+          <p>
+            O Tarô Terapêutico que utilizo em minhas consultas de 1h30 não se reduz a uma adivinhação determinista ou fatalista. Embora as lâminas possam revelar tendências e abram um rico campo de possibilidades sobre os desdobramentos futuros do seu momento presente, a ferramenta atua, acima de tudo, como um poderoso aliado da Psicologia Analítica. Assim como os sonhos e a imaginação ativa, as lâminas do Tarô RWS manifestam os arquétipos e conteúdos do seu inconsciente que mais precisam de luz e integração no aqui e agora.
+          </p>
+          <p>
+            Unindo a <strong>clareza metodológica</strong> (lapidada em anos de engenharia de sistemas) à <strong>profundidade e sensibilidade</strong> dos meus estudos com grandes referências da psicologia junguiana no Brasil — como <em>Carlos Byington, Maria Cristina Guarnieri, José Jorge de Morais Zacharias e Waldemar Magaldi Filho</em> —, utilizo o Tarô como um mapa simbólico de alta precisão. Ele serve para organizar o caos mental, silenciar o excesso de racionalização e acessar as respostas que a sua própria psique já carrega.
+          </p>
+          <p>
+            Seja para investigar uma queixa específica ou para navegar por momentos de névoa, escolhas e transições, você encontrará aqui um espaço de acolhimento ético, tecnicamente embasado e comprometido com o seu resgate de clareza.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="tarot-pricing" id="agendamento" style="padding: 6rem 0; background: url('Fundo.jpg') center/cover no-repeat, var(--bg-secondary);">
     <div class="container">
       <div class="pricing-card-solid"
@@ -1392,6 +1571,88 @@
   <!-- ---------------------------------------------------------------------
        FOOTER
        --------------------------------------------------------------------- -->
+  <!-- ---------------------------------------------------------------------
+       SEÇÃO CONTATO (Duas Colunas & Formulário Inteligente)
+       --------------------------------------------------------------------- -->
+  <section class="contact-section" id="contato">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <div class="contact-info">
+          <span class="section-subtitle" style="color: var(--color-tarot);">Entre em Contato</span>
+          <h3>Dê o primeiro passo rumo ao autoconhecimento</h3>
+          <p>Seja para tirar dúvidas, agendar sua Consulta de Alinhamento Arquetípico ou iniciar o seu processo de psicoterapia, estou à sua inteira disposição. Envie uma mensagem no formulário ao lado e darei o retorno o mais breve possível.</p>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.161.001 6.136 1.233 8.375 3.474 2.238 2.24 3.467 5.218 3.466 8.385-.003 6.537-5.328 11.86-11.859 11.86-2.007-.001-3.98-.51-5.733-1.48L0 24zm6.753-2.585c1.61.956 3.197 1.467 4.793 1.468 5.482 0 9.943-4.461 9.946-9.943.001-2.654-1.031-5.15-2.902-7.025-1.872-1.876-4.369-2.909-7.025-2.91-5.487 0-9.946 4.46-9.949 9.943-.001 1.724.475 3.411 1.378 4.887l-.999 3.648 3.758-.98z"/>
+              </svg>
+            </div>
+            <div class="info-text-block">
+              <h5>WhatsApp</h5>
+              <p>Agendamentos e dúvidas rápidas:<br><strong>(11) 99883-4347</strong></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="info-text-block">
+              <h5>E-mail</h5>
+              <p>Para dúvidas administrativas:<br><strong>info@psicoterapiajunguiana.com</strong></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="info-text-block">
+              <h5>Locais de Atendimento</h5>
+              <p>Consultório Virtual (On-line) & Atendimento Presencial (sob demanda consultiva em Jundiaí/SP, Brooklin/SP, Vila Madalena/SP e Pinheiros/SP).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="whatsappForm" onsubmit="sendFormToWhatsApp(event)">
+            <div class="form-group">
+              <label for="usrName">Seu Nome *</label>
+              <input type="text" id="usrName" class="form-control" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="form-group">
+              <label for="usrEmail">Seu E-mail *</label>
+              <input type="email" id="usrEmail" class="form-control" placeholder="Digite seu melhor e-mail" required>
+            </div>
+            <div class="form-group">
+              <label for="serviceInterest">Serviço de Interesse</label>
+              <select id="serviceInterest" class="form-control">
+                <option value="Consulta de Alinhamento Arquetípico (Sessão Única)" selected>Consulta de Alinhamento Arquetípico (Sessão Única)</option>
+                <option value="Psicoterapia Individual (Sessões Continuadas)">Psicoterapia Individual (Sessões Continuadas)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="usrMsg">Sua Mensagem *</label>
+              <textarea id="usrMsg" class="form-control" placeholder="Escreva um pouco sobre o que busca no processo analítico..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-tarot-pricing" style="width: 100%; font-size: 1.05rem; padding: 0.9rem; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; display: block; box-sizing: border-box;">
+              Enviar via WhatsApp
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -1460,6 +1721,36 @@
 
   <!-- Scripts -->
   <script>
+    // Formulário Inteligente conectando ao API do WhatsApp
+    function sendFormToWhatsApp(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('usrName').value;
+      const email = document.getElementById('usrEmail').value;
+      const service = document.getElementById('serviceInterest').value;
+      const message = document.getElementById('usrMsg').value;
+      
+      const phoneNumber = "5511998834347";
+      
+      // Formatação sofisticada e estruturada da mensagem
+      const structuredMessage = `Olá Rosangela!
+
+Gostaria de agendar um atendimento. Seguem meus dados:
+
+👤 Nome: ${name}
+✉️ E-mail: ${email}
+🔮 Interesse: ${service}
+
+📝 Mensagem:
+"${message}"`;
+
+      const encodedText = encodeURIComponent(structuredMessage);
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedText}`;
+      
+      // Abre o WhatsApp em uma nova aba
+      window.open(whatsappUrl, '_blank');
+    }
+
     function toggleCard(cardElement) {
       cardElement.classList.toggle('active');
     }
