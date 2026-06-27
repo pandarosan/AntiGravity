@@ -141,33 +141,30 @@
       position: absolute;
       width: 50%;
       height: 70%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(197, 160, 89, 0.3);
+      background-color: transparent;
+      border: none;
       border-radius: 12px;
       box-shadow: var(--shadow-lg);
       transition: transform 0.5s ease;
     }
 
     .tarot-card-mockup.card-1 {
-      transform: rotate(-18deg) translateX(-100px) translateY(-10px);
+      transform: rotate(-20deg) translateX(-130px) translateY(30px);
       z-index: 1;
-      background: url('Capa-Sol.jpg') center/cover no-repeat;
+      background: url('Capa-Sol.jpg') top/100% 100% no-repeat;
     }
 
     .tarot-card-mockup.card-2 {
       transform: rotate(0deg) translateY(-20px);
       z-index: 3;
-      border-color: var(--color-tarot);
-      background: url('Capa-Imperatriz.jpg') center/cover no-repeat;
+      background: url('Capa-Imperatriz.jpg') top/100% 100% no-repeat;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
     .tarot-card-mockup.card-3 {
-      transform: rotate(18deg) translateX(100px) translateY(-10px);
+      transform: rotate(20deg) translateX(130px) translateY(30px);
       z-index: 2;
-      background: url('Capa-Sacerdotisa.jpg') center/cover no-repeat;
+      background: url('Capa-Sacerdotisa.jpg') top/100% 100% no-repeat;
     }
 
     /* Carrossel Técnico */
