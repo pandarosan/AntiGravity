@@ -37,16 +37,16 @@
       --color-tarot: #C5A059;      /* Dourado Antigo (Tarô Terapêutico) */
       --color-tarot-btn: #B91C1C;  /* Vinho/Vermelho sofisticado */
       --color-tarot-title: #1E4D7B;/* Azul Clínico/Real */
-      --bg-body-image: linear-gradient(rgba(250, 247, 242, 0.35), rgba(250, 247, 242, 0.35)), url('Fundo.jpg');
-    }
-
-    [data-theme="dark"] {
-      --bg-body-image: linear-gradient(rgba(13, 23, 31, 0.7), rgba(13, 23, 31, 0.7)), url('Fundo.jpg');
     }
 
     /* Aplicar a fonte Inter no corpo da página do Tarô */
     body.page-tarot {
       font-family: 'Inter', system-ui, sans-serif;
+      background-image: linear-gradient(rgba(250, 247, 242, 0.35), rgba(250, 247, 242, 0.35)), url('Fundo.jpg') !important;
+    }
+    
+    [data-theme="dark"] body.page-tarot {
+      background-image: linear-gradient(rgba(13, 23, 31, 0.7), rgba(13, 23, 31, 0.7)), url('Fundo.jpg') !important;
     }
 
     .page-tarot .section-title, .page-tarot h1, .page-tarot h2, .page-tarot h3 {
