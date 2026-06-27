@@ -454,6 +454,50 @@
         left: -8px;
       }
     }
+
+    /* Accordion Tiragens */
+    .tiragem-card {
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+    }
+    .card-hidden-content {
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      text-align: left;
+      border-top: 0px solid transparent;
+      padding-top: 0;
+    }
+    .tiragem-card.active .card-hidden-content {
+      max-height: 1000px;
+      opacity: 1;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+    }
+    .expand-trigger {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--color-tarot);
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+    .tiragem-card.active .expand-trigger {
+      transform: rotate(180deg);
+    }
+    .clinical-pos {
+      font-size: 0.95rem;
+      color: var(--color-tarot-title);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .anatomy-details p {
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
   </style>
 
   <!-- Dados Estruturados em JSON-LD para Otimização de IAs (GEO) -->
@@ -850,70 +894,126 @@
        SEÇÃO METODOLOGIA (Os 5 Métodos de Jogo)
        --------------------------------------------------------------------- -->
   <section class="metodologia-section" id="metodologia" style="background-color: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle" style="color: var(--color-tarot);">Portfólio Analítico</span>
-        <h2 class="section-title">Alguns Métodos de Jogos</h2>
-        <p class="section-desc">Uma avaliação sensível, técnica e personalizada. O método ideal para mapear o seu
-          momento atual será diagnosticado em conjunto, após os primeiros 30 minutos de nossa conversa clínica e
-          acolhimento analítico.</p>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle" style="color: var(--color-tarot);">Portfólio Analítico</span>
+      <h2 class="section-title">Alguns Métodos de Jogos</h2>
+      <p class="section-desc">O Tarô Terapêutico sob a perspectiva analítica não engessa a sua jornada em fórmulas prontas. Cada consulta é desenhada sob medida para as suas necessidades. Durante os primeiros 30 minutos de acolhimento e escuta ativa, nós mapeamos as suas demandas, cansaços, dúvidas ou conflitos. É a partir desse diagnóstico inicial que identificamos qual das abordagens abaixo atuará como o mapa simbólico mais preciso para trazer os conteúdos do seu inconsciente à superfície.</p>
+    </div>
+
+    <div class="tiragens-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      
+      <!-- Card 1: Cruz Celta -->
+      <div class="tiragem-card glass-card" onclick="toggleCard(this)">
+        <div class="card-visible-header">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Cruz Celta (10 Cartas) — Radiografia Completa da Alma</h4>
+          <p class="intro-text" style="color: var(--text-secondary); font-size: 0.95rem;">Uma leitura multidimensional que analisa a sua queixa em profundidade. Entendemos as motivações inconscientes, as influências do passado recente, o seu nível de consciência sobre o problema e as perspectivas de futuro se o padrão atual for mantido.</p>
+          <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
+        </div>
+        <div class="card-hidden-content">
+          <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> Indicado para quando você traz uma questão ou um impasse específico (seja uma escolha afetiva, um dilema de carreira, uma crise familiar ou um esgotamento sem causa aparente). É uma análise profunda de causas, efeitos e forças ocultas.</p>
+          <div class="anatomy-details">
+            <p><strong>O Núcleo Psíquico:</strong> O ponto de partida se dá no cruzamento imediato da sua realidade. A primeira lâmina traz o tema central e o cerne da sua questão atual, enquanto a segunda carta a atravessa fisicamente, revelando os fatores e forças que estão influenciando, tensionando ou bloqueando a sua ação direta no presente.</p>
+            <p><strong>As Raízes Ocultas:</strong> Uma investigação sobre o tempo. Descemos até as bases inconscientes e os eventos antigos que geraram a situação atual, cruzando-os com o eco das energias do seu passado recente, identificando aquilo que já cumpriu seu papel e precisa ser conscientizado e deixado para trás para que a sua psique possa fluir em movimento.</p>
+            <p><strong>O Direcionamento da Consciência:</strong> O mapeamento do topo das suas aspirações. Analisamos os seus objetivos lógicos e o que você pensa conscientemente sobre o problema, tencionando com a tendência imediata de acontecimentos e circunstâncias que estão prestes a se manifestar nas próximas semanas.</p>
+            <p><strong>O Campo de Forças:</strong> O espelho das interações. Avaliamos o tencionamento profundo entre a sua atitude mental interna, as influências e percepções do ambiente externo (família, sociedade ou trabalho) e os medos ou esperanças secretos que moldam silenciosamente as suas escolhas.</p>
+            <p><strong>A Síntese Transcendente:</strong> O desfecho da jornada. A leitura culmina na indicação do resultado provável e tendência futura caso a sua trajetória atual e seus padrões de comportamento repetitivos não sejam conscientizados, integrados e alterados.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="tiragens-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-
-        <!-- Card 1 -->
-        <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Cruz Celta (10
-            Cartas) — Radiografia completa da alma (do inconsciente profundo ao ambiente externo).</h4>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">Uma leitura multidimensional que analisa a sua
-            queixa em profundidade. Entendemos as motivações inconscientes, as influências do passado recente, o seu
-            nível de consciência sobre o problema e as perspectivas de futuro se o padrão atual for mantido.</p>
+      <!-- Card 2: Mandala Astrológica -->
+      <div class="tiragem-card glass-card" onclick="toggleCard(this)">
+        <div class="card-visible-header">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Mandala Astrológica (12 Cartas) — Análise Sistêmica Cruzando as 12 Casas</h4>
+          <p class="intro-text" style="color: var(--text-secondary); font-size: 0.95rem;">Ideal para mapear a estrutura global do seu momento. Cruzamos a simbologia do Tarô com as 12 casas astrológicas para diagnosticar áreas como finanças, relacionamentos familiares, carreira, saúde mental e propósito.</p>
+          <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
         </div>
-
-        <!-- Card 2 -->
-        <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Mandala
-            Astrológica (12 Cartas) — Análise sistêmica cruzando as 12 casas zodiacais e áreas da vida.</h4>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">Ideal para mapear a estrutura global do seu
-            momento. Cruzamos a simbologia do Tarô com as 12 casas astrológicas para diagnosticar áreas como finanças,
-            relacionamentos familiares, carreira, saúde mental e propósito.</p>
+        <div class="card-hidden-content">
+          <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> Perfeito para quem busca um panorama global e integrativo de seu momento presente. Excelente para grandes revisões de vida, crises existenciais ou momentos em que tudo parece interligado.</p>
+          <div class="anatomy-details">
+            <p><strong>Identidade, Recursos e Intelecto:</strong> Iniciamos o desenho do mapa astral escaneando o seu "Eu" profundo, a sua autoimagem e a sua energia física atual. Em seguida, investigamos a sua relação com as finanças, seus valores pessoais e segurança material, conectando à sua capacidade de comunicação, intelecto e trocas imediatas com o entorno.</p>
+            <p><strong>Bases, Expressão e Rotina:</strong> Adentramos a sua intimidade doméstica, suas raízes e a dinâmica familiar, expandindo para os seus canais de criatividade, romances e o prazer essencial de realizar. Concluímos esse quadrante mapeando o seu trabalho cotidiano, os deveres diários e a sua saúde física frente aos sinais de esgotamento.</p>
+            <p><strong>O Outro, as Crises e a Expansão:</strong> Analisamos o espelho das parcerias de longo prazo, casamentos ou sociedades comerciais. A partir daí, investigamos as suas transformações profundas, crises, desapegos necessários e finanças compartilhadas, abrindo caminho para a sua busca por espiritualidade, filosofia de vida e estudos superiores.</p>
+            <p><strong>Destino, Coletivo e o Ponto Cego:</strong> Mapeamos o ápice da sua projeção no mundo: a carreira, o status social e o seu destino profissional, desaguando nos seus projetos para o futuro, amizades e engajamento social. O círculo se fecha no mergulho ao inconsciente, revelando os medos reprimidos e os pontos cegos psíquicos que sabotam suas decisões sem que você perceba.</p>
+          </div>
         </div>
+      </div>
 
-        <!-- Card 3 -->
-        <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Tiragem de
-            Aniversário (7 Cartas) — Mapa de navegação e desafios para o novo ciclo anual.</h4>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">O seu mapa de navegação para o novo ciclo solar.
-            Mapeamos os recursos internos que estão à sua disposição, os desafios centrais do seu ano e o principal
-            aprendizado que a sua alma busca amadurecer.</p>
+      <!-- Card 3: Tarot para o Ano Novo -->
+      <div class="tiragem-card glass-card" onclick="toggleCard(this)">
+        <div class="card-visible-header">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Leitura de Tarot para o Ano Novo (7 Cartas) — Panorama Holístico</h4>
+          <p class="intro-text" style="color: var(--text-secondary); font-size: 0.95rem;">Uma visão holística e profunda para preparar você mental e emocionalmente para os seus próximos doze meses. Um mapa prático que substitui adivinhações por direcionamento, ajudando a planejar e moldar o seu futuro.</p>
+          <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
         </div>
-
-        <!-- Card 4 -->
-        <div class="tiragem-card glass-card">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Tiragem de
-            Autoconhecimento (4 Arcanos Maiores + 4 Arcanos Menores) — Estrutura do Self cruzada com o cotidiano.</h4>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">Uma imersão rápida na estrutura do seu Self
-            cruzada com a sua realidade cotidiana material. Excelente para quem busca identificar bloqueios imediatos de
-            autoconfiança ou alinhar o ego à alma.</p>
+        <div class="card-hidden-content">
+          <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> Uma abordagem de acolhimento cíclico temporal. Diferente de uma análise engessada, ela foca em preparar o seu estado mental para mapear as tendências, desafios e pontos de virada do ano de forma orgânica.</p>
+          <div class="anatomy-details">
+            <p><strong>A Atmosfera Regente:</strong> No topo da estrutura, a primeira lâmina dita a tônica espiritual, mental e emocional que atravessará o seu período. É o clima geral e a carta regente que guiará o seu ano como um todo.</p>
+            <p><strong>O Eixo de Desenvolvimento:</strong> Na linha central do jogo, decodificamos a tríade do seu crescimento. Identificamos o principal aprendizado que a vida está pedindo para você desenvolver, tencionando diretamente com o maior desafio ou teste de amadurecimento que baterá à sua porta, e revelando o seu maior potencial e oportunidade latente de expansão.</p>
+            <p><strong>A Ancoragem Prática:</strong> Na linha de base, estruturamos a sua postura no mundo. O Tarô entrega o conselho central para orientar suas decisões, aponta com precisão quais padrões, situações ou relações já não servem mais e devem ser deixados para trás, e revela onde você deve focar e investir conscientemente a sua energia.</p>
+          </div>
         </div>
+      </div>
 
-        <!-- Card 5 -->
-        <div class="tiragem-card featured-tiragem glass-card"
-          style="grid-column: 1 / -1; border-left: 4px solid var(--color-tarot);">
-          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Momento Atual
-            (3 Cartas Combinadas) — Tríade da Alma</h4>
-          <p style="color: var(--text-secondary); font-size: 0.95rem;">
-            Geralmente aplicado como complemento de outros jogos dependendo do tempo.<br>
-            (Carta 1: Arcano Maior/Movimento da Alma; <br>
-            Carta 2: Arcano Menor Numerado/Etapa na matéria; <br>
-            Carta 3: Arcano da Corte/Atitude diante da vida).
-          </p>
+      <!-- Card 4: Jogo para o Aniversário -->
+      <div class="tiragem-card glass-card" onclick="toggleCard(this)">
+        <div class="card-visible-header">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Jogo para o Aniversário (9 Cartas) — O Mapa do Novo Ano Pessoal</h4>
+          <p class="intro-text" style="color: var(--text-secondary); font-size: 0.95rem;">O seu mapa de navegação para o novo ciclo solar. Mapeamos os recursos internos que estão à sua disposição, os desafios centrais do seu ano e o principal aprendizado que a sua alma busca amadurecer.</p>
+          <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
+        </div>
+        <div class="card-hidden-content">
+          <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> Exclusivo para o período de celebração e fechamento de ciclo (aniversário / revolução solar). Atua como uma ferramenta analítica de introspecção especial anual para guiar o seu amadurecimento pelos próximos 12 meses.</p>
+          <div class="anatomy-details">
+            <p><strong>O Encerramento e o Fluxo:</strong> Uma análise de transição de ciclos. Investigamos as influências do seu passado recente, ajudando você a liberar e deixar ir as experiências que já não servem mais, enquanto reconhecemos as conquistas e vitórias do último ano que continuarão a fluir com você no novo ciclo.</p>
+            <p><strong>O Momento e as Questões Inacabadas:</strong> Diagnosticamos o seu momento presente, observando como você se encontra hoje emocional e mentalmente, e identificamos com clareza quais pendências ou questões do último ano ainda precisam ser resolvidas ou formalmente concluídas para não travarem seus passos.</p>
+            <p><strong>As Novas Forças e os Desafios:</strong> Descobrimos as novas energias e correntes arquetípicas que entrarão na sua vida, preparando a sua psique para os desafios e testes de amadurecimento que podem surgir, apontando os caminhos e recursos internos para superá-los.</p>
+            <p><strong>As Metas e a Síntese do Ciclo:</strong> Definimos as suas metas tangíveis e alcançáveis para os próximos doze meses, compreendendo a tônica predominante e o tema geral do ano. O jogo se conclui com um presente simbólico — uma bênção ou surpresa que a vida reserva para o seu crescimento pessoal ao longo deste novo ano pessoal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Tiragem de Autoconhecimento -->
+      <div class="tiragem-card glass-card" onclick="toggleCard(this)" style="grid-column: 1 / -1;">
+        <div class="card-visible-header">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Tiragem de Autoconhecimento (Técnica de Camadas) — O Espelho do Self</h4>
+          <p class="intro-text" style="color: var(--text-secondary); font-size: 0.95rem;">Uma imersão rápida na estrutura do seu Self cruzada com a sua realidade cotidiana material. Excelente para quem busca identificar bloqueios imediatos de autoconfiança ou alinhar o ego à alma.</p>
+          <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
+        </div>
+        <div class="card-hidden-content">
+          <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> O tencionamento psíquico mais profundo e puramente terapêutico do portfólio. Utiliza a sobreposição de cartas para traduzir os movimentos macro do inconsciente nas ações do dia a dia.</p>
+          <p class="intro-text" style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-secondary);">"Um método avançado composto por 4 posições estruturais em dupla camada. Os Arcanos Maiores revelam a raiz psicológica arquetípica profunda e os Arcanos Menores materializam como essa energia se desdobra nas suas ações cotidianas."</p>
+          <div class="anatomy-details">
+            <p><strong>A Identidade Manifesta (A Luz):</strong> Investigamos a sua face consciente e aparente para o mundo. Esta estação revela como você se vê e como os outros o percebem, trazendo à tona o que é conhecido, evidente, seus talentos ativos e suas virtudes manifestas.</p>
+            <p><strong>O Território Invisível (A Sombra):</strong> O mergulho profundo no inconsciente. Desvelamos as energias e influências que agem sobre as suas decisões, mas que estão ocultas tanto para você quanto para os outros, trazendo clareza sobre sabotagens ocultas ou potenciais reprimidos que precisam emergir.</p>
+            <p><strong>A Privacidade da Psique (A Consciência Pessoal):</strong> Mapeamos os aspectos e características que você conhece e reconhece perfeitamente sobre si mesma(o), mas que escolhe estrategicamente manter reservados, privados ou resguardados do olhar do mundo exterior.</p>
+            <p><strong>O Reflexo no Outro (A Percepção Externa):</strong> Descobrimos as revelações mais profundas sobre as suas dinâmicas relacionais: como os outros e o mundo exterior o percebem de fato, independentemente da sua própria consciência ou intenção atual, permitindo que você melhore seus vínculos e se relacione de maneira mais autêntica.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Momento Atual -->
+      <div class="tiragem-card glass-card" onclick="toggleCard(this)" style="grid-column: 1 / -1; border-left: 4px solid var(--color-tarot);">
+        <div class="card-visible-header">
+          <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-family: var(--font-title);">Momento Atual (3 Cartas Combinadas) — A Tríade da Alma</h4>
+          <p class="intro-text" style="color: var(--text-secondary); font-size: 0.95rem;">Geralmente aplicado como complemento de outros jogos dependendo do tempo.</p>
+          <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
+        </div>
+        <div class="card-hidden-content">
+          <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> Diagnóstico dinâmico e de alta precisão. Usado pontualmente ou como um complemento cirúrgico aos jogos de Autoconhecimento ou Aniversário para refinar o tempo e as prioridades da sessão.</p>
+          <p class="intro-text" style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-secondary);">"Uma abordagem focada na estrutura do aqui e agora, decodificando de forma direta o macroprocesso da alma, a realidade material e a postura de ação no mundo."</p>
+          <div class="anatomy-details">
+            <p><strong>O Movimento da Alma:</strong> O ponto de partida decodifica o aspecto profundo, interno e arquetípico que está movendo a sua psique neste exato momento da sua existência (Carta 1: Arcano Maior).</p>
+            <p><strong>A Etapa na Matéria:</strong> O segundo vetor traduz o estágio prático do caminho, detalhando como essa energia se desdobra nas suas tarefas diárias, na sua rotina e nas ações do seu cotidiano material (Carta 2: Arcano Menor Numerado).</p>
+            <p><strong>A Atitude Diante da Vida:</strong> A síntese final entrega a postura comportamental e ética recomendada, apontando a atitude prática que você deve adotar no mundo para atravessar o momento com maestria e autorregulação (Carta 3: Arcano da Corte).</p>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
-
   <!-- ---------------------------------------------------------------------
        SEÇÃO A DINÂMICA DA SESSÃO (TIMELINE)
        --------------------------------------------------------------------- -->
@@ -1345,6 +1445,11 @@
   </button>
 
   <!-- Scripts -->
+  <script>
+    function toggleCard(cardElement) {
+      cardElement.classList.toggle('active');
+    }
+  </script>
   <script src="script.js" defer></script>
 </body>
 
