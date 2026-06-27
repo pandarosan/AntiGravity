@@ -947,17 +947,16 @@
   <script>
     let isModalOpen = false;
 
-    // JS Simples para o Modal do Tarô
+    // JS para o Modal do Tarô
     function openModal(title, desc) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalDesc').innerText = desc;
       
-      // Inferir a imagem a partir do título para manter tudo automatizado
       let imageName = title.replace(/\s+/g, '-').normalize('NFD').replace(/[\u0300-\u036f]/g, "") + '.jpg';
       document.getElementById('modalImage').src = imageName;
 
       document.getElementById('tarotModal').classList.add('active');
-      document.body.style.overflow = 'hidden'; // Evita scroll atrás
+      document.body.style.overflow = 'hidden'; 
       isModalOpen = true;
     }
 
@@ -967,7 +966,6 @@
       isModalOpen = false;
     }
 
-    // Fechar ao clicar fora do modal
     window.onclick = function(event) {
       var modal = document.getElementById('tarotModal');
       if (event.target == modal) {
@@ -976,72 +974,91 @@
     }
 
     // Atualiza automaticamente o ano de Copyright no rodapé
-    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    const copyrightElem = document.getElementById('copyright-year');
+    if (copyrightElem) {
+      copyrightElem.textContent = new Date().getFullYear();
+    }
 
-    // ─── CARROSSEL: AUTO-SCROLL + DRAG ──────────────────────────────────────
+    // ─── CARROSSEL DEFINITIVO: AUTO-SCROLL + DRAG UNIFICADO + SCROLLBAR ───
     window.addEventListener('load', function() {
       const track = document.getElementById('tarot-carousel');
       if (!track) return;
 
-      // Duplica as cartas para criar loop infinito
+      // Duplica o conteúdo para criar o efeito infinito visual
       track.innerHTML += track.innerHTML;
 
-      let paused   = false;   // hover ou drag ativa isto
-      let dragging = false;
-      let dragStartX = 0;
-      let dragScrollLeft = 0;
+      let paused = false;   
+      let isDragging = false;
+      let startX = 0;
+      let scrollStart = 0;
       
-      // Capturamos a metade exata do scroll (pois duplicamos o conteúdo)
-      const half = track.scrollWidth / 2;
-      let pos = half; 
+      const halfWidth = track.scrollWidth / 2;
+      let pos = halfWidth; 
+      track.scrollLeft = pos;
 
-      // ── Hover ──────────────────────────────────────────────────────────────
-      track.addEventListener('mouseenter', () => { paused = true;  });
-      track.addEventListener('mouseleave', () => { paused = false; dragging = false; });
-
-      // ── Drag com mouse ─────────────────────────────────────────────────────
-      track.addEventListener('mousedown', (e) => {
-        dragging = true;
-        dragStartX = e.pageX;
-        dragScrollLeft = track.scrollLeft;
-        pos = track.scrollLeft;
-      });
-      window.addEventListener('mouseup',  () => { if (dragging) { dragging = false; pos = track.scrollLeft; } });
-      window.addEventListener('mousemove', (e) => {
-        if (!dragging) return;
-        e.preventDefault();
-        track.scrollLeft = dragScrollLeft - (e.pageX - dragStartX);
-        pos = track.scrollLeft;
-      });
-
-      // ── Touch ──────────────────────────────────────────────────────────────
-      track.addEventListener('touchstart', () => { paused = true;  }, {passive: true});
-      track.addEventListener('touchend',   () => { paused = false; pos = track.scrollLeft; }, {passive: true});
-
-      // ── RAF loop ───────────────────────────────────────────────────────────
-      const SPEED = 0.8; // px por frame — altere aqui a velocidade
+      // RAF Loop para o Giro Contínuo Automático
+      const SPEED = 0.8; // Velocidade em pixels por frame
       function tick() {
-        if (!paused && !dragging && !isModalOpen) {
+        if (!paused && !isDragging && !isModalOpen) {
           pos += SPEED;
           track.scrollLeft = pos;
         }
 
-        // Reset silencioso ao atingir as bordas
-        const h = track.scrollWidth / 2;
-        if (track.scrollLeft >= h) {
-          track.scrollLeft -= h;
-          pos -= h;
-        }
-        if (track.scrollLeft <= 0) {
-          track.scrollLeft += h;
-          pos += h;
+        // Reset silencioso nas bordas para manter o loop infinito perfeito
+        if (track.scrollLeft >= halfWidth * 1.5) {
+          pos -= halfWidth;
+          track.scrollLeft = pos;
+        } else if (track.scrollLeft <= halfWidth * 0.5) {
+          pos += halfWidth;
+          track.scrollLeft = pos;
         }
 
         requestAnimationFrame(tick);
       }
 
-      // Inicia com a posição já no meio da cópia duplicada (para drag para esquerda funcionar)
-      track.scrollLeft = half;
+      // Pausa o giro ao passar o mouse por cima
+      track.addEventListener('mouseenter', () => { paused = true; });
+      track.addEventListener('mouseleave', () => { 
+        if (!isDragging) paused = false; 
+      });
+
+      // Eventos de Ponteiro Unificados (Mouse + Touch de Celular)
+      track.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        paused = true;
+        track.style.cursor = 'grabbing';
+        track.setPointerCapture(e.pointerId);
+        startX = e.pageX - track.offsetLeft;
+        scrollStart = track.scrollLeft;
+      });
+
+      track.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.2; // Multiplicador de sensibilidade do arrasto
+        track.scrollLeft = scrollStart - walk;
+        pos = track.scrollLeft; // Sincroniza a posição do auto-scroll com o arrasto
+      });
+
+      const stopDragging = (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        paused = false;
+        track.style.cursor = 'grab';
+        pos = track.scrollLeft;
+      };
+
+      track.addEventListener('pointerup', stopDragging);
+      track.addEventListener('pointercancel', stopDragging);
+
+      // Permite que a barra de rolagem manual também atualize a posição do script
+      track.addEventListener('scroll', () => {
+        if (!paused && !isDragging) return; 
+        pos = track.scrollLeft;
+      });
+
+      // Inicia o loop
       requestAnimationFrame(tick);
     });
   </script>
