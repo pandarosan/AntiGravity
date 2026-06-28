@@ -19,7 +19,7 @@
   <meta property="og:description"
     content="O Tarô como bússola e espelho do momento presente. Um convite para decodificar os sinais que a mente consciente tenta mascarar com o cansaço.">
   <meta property="og:url" content="https://rosangelacorrea.com.br/taroterapeutico/">
-  <meta property="og:image" content="imagem-compartilhamento.jpg">
+  <meta property="og:image" content="https://rosangelacorrea.com.br/taroterapeutico/Imagem-Compartilhamento.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -882,6 +882,7 @@
       border-top: 1px solid rgba(197, 160, 89, 0.15);
       border-bottom: 1px solid rgba(197, 160, 89, 0.15);
     }
+
     .vintage-grid {
       display: grid;
       grid-template-columns: 1fr 1.3fr;
@@ -890,6 +891,7 @@
       max-width: 120ch;
       margin: 0 auto;
     }
+
     .vintage-image-wrapper {
       position: relative;
       border-radius: 20px;
@@ -897,11 +899,13 @@
       box-shadow: var(--shadow-lg);
       border: 1px solid rgba(197, 160, 89, 0.25);
     }
+
     .vintage-image-wrapper img {
       width: 100%;
       height: auto;
       display: block;
     }
+
     .vintage-content h3 {
       font-family: var(--font-title);
       font-size: 2.2rem;
@@ -910,6 +914,7 @@
       color: var(--color-tarot-title);
       text-align: left;
     }
+
     .vintage-content p {
       color: var(--text-secondary);
       font-size: 1.15rem;
@@ -924,10 +929,12 @@
         grid-template-columns: 1fr;
         gap: 3rem;
       }
+
       .vintage-image-wrapper {
         max-width: 450px;
         margin: 0 auto;
       }
+
       .vintage-content h3 {
         font-size: 1.8rem;
       }
@@ -937,13 +944,46 @@
     [data-theme="dark"] .cta-vintage-section {
       background-color: rgba(13, 23, 31, 0.4);
     }
+
     [data-theme="dark"] .vintage-content h3 {
       color: #FAF7F2 !important;
     }
+
     [data-theme="dark"] .vintage-content p {
       color: #D1D5DB !important;
     }
+
+    /* Estilos do Logo Subtitulo (Otimizado) */
+    .logo-sub {
+      display: block;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.72rem; /* Tamanho delicado e profissional */
+      font-weight: 500;
+      letter-spacing: 0.06em; /* Espaçamento nobre, mas sem esticar em excesso */
+      text-transform: uppercase;
+      color: var(--color-tarot) !important;
+      margin-top: 0.3rem;
+      white-space: nowrap; /* Garante que o texto tente se manter em uma linha */
+    }
+
+    /* Ajuste responsivo para telas menores de celulares */
+    @media (max-width: 480px) {
+      .logo-sub {
+        font-size: 0.58rem !important; /* Encolhe delicadamente para caber na tela */
+        letter-spacing: 0.04em !important;
+      }
+    }
+    
+    /* Protecao extra contra o "jogo" (scroll horizontal fantasma) na capa */
+    .hero-tarot {
+        overflow-x: hidden;
+    }
+    
+    .hero-content {
+        touch-action: pan-y;
+    }
   </style>
+
 
 
   <!-- Dados Estruturados em JSON-LD para Otimização de IAs (GEO) -->
@@ -1131,7 +1171,7 @@
   <section class="tarot-manifesto py-16" id="manifesto">
     <div class="container" style="max-width: 120ch; margin: 0 auto; text-align: center;">
       <span class="section-subtitle" style="color: var(--color-tarot);">Manifesto Clínico</span>
-      <h2 class="section-title">A Fusão de Jung, a Psicologia Analítica e o Tarô</h2>
+      <h2 class="section-title" style="hyphens: none !important; word-break: normal !important; white-space: normal;">A Fusão de Jung, a Psicologia Analítica e o Tarô</h2>
 
       <div class="manifesto-content" style="text-align: justify; margin-top: 3rem;">
         <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem; text-align: justify;">
@@ -1421,7 +1461,7 @@
                 crises, desapegos necessários e finanças compartilhadas, abrindo caminho para a sua busca por
                 espiritualidade, filosofia de vida e estudos superiores.</p>
               <p><strong>Destino, Coletivo e o Ponto Cego:</strong> Mapeamos o ápice da sua projeção no mundo: a
-                carreira, o status social e o seu destino profissional, desaguando nos seus projetos para o futuro,
+                carreira, o status social e o seu destino profissional, desaguando em seus projetos para o futuro,
                 amizades e engajamento social. O círculo se fecha no mergulho ao inconsciente, revelando os medos
                 reprimidos e os pontos cegos psíquicos que sabotam suas decisões sem que você perceba.</p>
             </div>
@@ -1448,7 +1488,7 @@
                 como um todo.</p>
               <p><strong>O Eixo de Desenvolvimento:</strong> Na linha central do jogo, decodificamos a tríade do seu
                 crescimento. Identificamos o principal aprendizado que a vida está pedindo para você desenvolver,
-                tencionando diretamente com o maior desafio ou teste de amadurecimento que baterá à sua porta, e
+                tencionando-o diretamente com o maior desafio ou teste de amadurecimento que baterá à sua porta, e
                 revelando o seu maior potencial e oportunidade latente de expansão.</p>
               <p><strong>A Ancoragem Prática:</strong> Na linha de base, estruturamos a sua postura no mundo. O Tarô
                 entrega o conselho central para orientar suas decisões, aponta com precisão quais padrões, situações ou
@@ -1503,7 +1543,7 @@
             <span class="expand-trigger">Clique para ver a anatomia do jogo ↓</span>
           </div>
           <div class="card-hidden-content">
-            <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> O tencionamento psíquico mais profundo e
+            <p class="clinical-pos"><strong>Posicionamento Clínico:</strong> O tensionamento psíquico mais profundo e
               puramente terapêutico do portfólio. Utiliza a sobreposição de cartas para traduzir os movimentos macro do
               inconsciente nas ações do dia a dia.</p>
             <p class="intro-text" style="font-style: italic; margin-bottom: 1.5rem; color: var(--text-secondary);">"Um
@@ -1590,7 +1630,7 @@
         <div class="timeline-item">
           <div class="time">75 - 90 min</div>
           <div class="content">
-            <h4>Plano de ção Estratégico</h4>
+            <h4>Plano de Ação Estratégico</h4>
             <p>Com base no que conversarmos ao longo do atendimento, poderemos sugerir indicações para você recuperar a
               clareza e destravar a sua rotina, como: ajustes de rotina e/ou comportamento, exercícios de atenção e/ou
               reflexão, bem como atitudes práticas de inícios, encerramentos e/ou adaptabilidades.</p>
@@ -2022,12 +2062,14 @@
           <span class="section-subtitle" style="color: var(--color-tarot);">Um Convite à Lucidez</span>
           <h3>O símbolo é a ponte onde a razão silencia e a alma finalmente se faz ouvir.</h3>
           <p>
-            Permita-se vivenciar a clareza de uma ferramenta ancestral que atravessou gerações. Unindo o rigor analítico ao acolhimento terapêutico, esta sessão única foi desenhada para acalmar o excesso de racionalização, organizar o caos mental e iluminar a sua tomada de decisões.
+            Permita-se vivenciar a clareza de uma ferramenta ancestral que atravessou gerações, agora aliada à
+            psicologia analítica, desenhada especificamente para acalmar o excesso de racionalização, organizar o caos
+            mental e iluminar a sua tomada de decisões.
           </p>
           <div style="margin-top: 2rem; text-align: left;">
-            <a href="https://api.whatsapp.com/send?phone=5511998834347&text=Ol%C3%A1%20Rosangela!%20Li%20o%20seu%20manifesto%20e%20gostaria%20de%20resgatar%20minha%20clareza%20com%20uma%20Consulta%20de%20Alinhamento%20Arquet%C3%ADpico" 
-           target="_blank" class="btn btn-primary btn-tarot-pricing" 
-               style="display: inline-block; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: bold; font-size: 1.05rem; text-decoration: none; transition: all 0.3s ease;">
+            <a href="https://api.whatsapp.com/send?phone=5511998834347&text=Ol%C3%A1%20Rosangela!%20Li%20o%20seu%20manifesto%20e%20gostaria%20de%20resgatar%20minha%20clareza%20com%20uma%20Consulta%20de%20Alinhamento%20Arquet%C3%ADpico%20com%20Tar%C3%B4%20Terap%C3%AAutico."
+              target="_blank" class="btn btn-primary btn-tarot-pricing"
+              style="display: inline-block; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: bold; font-size: 1.05rem; text-decoration: none; transition: all 0.3s ease;">
               Solicitar Atendimento
             </a>
           </div>
