@@ -527,7 +527,7 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.2fr 2fr;
+      grid-template-columns: 1fr 1.2fr;
       gap: 4rem;
       align-items: flex-start;
       max-width: 120ch;
@@ -694,6 +694,23 @@
     [data-theme="dark"] body.page-tarot p,
     [data-theme="dark"] body.page-tarot li {
       color: #D1D5DB !important;
+    }
+
+    /* Blindagem da Seção de Preços (Fundo claro exige texto escuro sempre) */
+    [data-theme="dark"] body.page-tarot .pricing-card-solid p,
+    [data-theme="dark"] body.page-tarot .pricing-card-solid h4,
+    [data-theme="dark"] body.page-tarot .pricing-card-solid span {
+      color: #1a202c !important;
+    }
+
+    /* Botão "Conheça os Métodos" - Dourado no Modo Escuro */
+    [data-theme="dark"] body.page-tarot .btn-outline-tarot {
+      border-color: var(--color-tarot) !important;
+      color: var(--color-tarot) !important;
+    }
+    [data-theme="dark"] body.page-tarot .btn-outline-tarot:hover {
+      background-color: var(--color-tarot) !important;
+      color: #1a202c !important;
     }
   </style>
 
