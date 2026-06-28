@@ -17,7 +17,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tarô Terapêutico - Alinhamento Arquetípico | Rosangela Corrêa">
   <meta property="og:description"
-    content="O Tarô como bússola e espelho do momento presente. Um convite para decodificar os sinais que a mente consciente tenta mascarar com o cansaço.">
+    content="O Tarô Terapêutico como bússola e espelho do momento presente. Um convite para decodificar os sinais que a mente consciente tenta mascarar com o cansaço.">
   <meta property="og:url" content="https://rosangelacorrea.com.br/taroterapeutico/">
   <meta property="og:image" content="https://rosangelacorrea.com.br/taroterapeutico/Imagem-Compartilhamento.jpg">
   <meta property="og:image:width" content="1200">
@@ -961,30 +961,47 @@
     .logo-sub {
       display: block;
       font-family: 'Inter', sans-serif !important;
-      font-size: 0.72rem; /* Tamanho delicado e profissional */
+      font-size: 0.72rem;
+      /* Tamanho delicado e profissional */
       font-weight: 500;
-      letter-spacing: 0.06em; /* Espaçamento nobre, mas sem esticar em excesso */
+      letter-spacing: 0.06em;
+      /* Espaçamento nobre, mas sem esticar em excesso */
       text-transform: uppercase;
       color: var(--color-tarot) !important;
       margin-top: 0.3rem;
-      white-space: nowrap; /* Garante que o texto tente se manter em uma linha */
+      white-space: nowrap;
+      /* Garante que o texto tente se manter em uma linha */
     }
 
     /* Ajuste responsivo para telas menores de celulares */
     @media (max-width: 480px) {
       .logo-sub {
-        font-size: 0.58rem !important; /* Encolhe delicadamente para caber na tela */
+        font-size: 0.58rem !important;
+        /* Encolhe delicadamente para caber na tela */
         letter-spacing: 0.04em !important;
       }
     }
-    
+
     /* Protecao extra contra o "jogo" (scroll horizontal fantasma) na capa */
     .hero-tarot {
-        overflow-x: hidden;
+      overflow-x: hidden;
     }
-    
+
     .hero-content {
-        touch-action: pan-y;
+      touch-action: pan-y;
+    }
+
+    /* CORRECAO DO GEMINI: Reduz abertura das cartas no celular para não travar o scroll */
+    @media (max-width: 768px) {
+      .tarot-hero-visual {
+        overflow: hidden; /* Corta o vazamento de toque */
+      }
+      .tarot-card-mockup.card-left {
+        transform: translateX(-70px) rotate(-15deg) !important;
+      }
+      .tarot-card-mockup.card-right {
+        transform: translateX(70px) rotate(15deg) !important;
+      }
     }
   </style>
 
@@ -1122,7 +1139,7 @@
       <div class="hero-grid">
         <div class="hero-content">
           <!-- Área da Headline (Bússola e Transição) -->
-          <h1 class="hero-title">O Tarô como bússola e espelho do momento presente.</h1>
+          <h1 class="hero-title">O Tarô Terapêutico como bússola e espelho do momento presente.</h1>
 
           <!-- Área da Sub-headline (Sessão Única) -->
           <h2
@@ -1175,7 +1192,8 @@
   <section class="tarot-manifesto py-16" id="manifesto">
     <div class="container" style="max-width: 120ch; margin: 0 auto; text-align: center;">
       <span class="section-subtitle" style="color: var(--color-tarot);">Manifesto Clínico</span>
-      <h2 class="section-title" style="hyphens: none !important; word-break: normal !important; white-space: normal;">A Fusão de Jung, a Psicologia Analítica e o Tarô</h2>
+      <h2 class="section-title" style="hyphens: none !important; word-break: normal !important; white-space: normal;">A
+        Fusão de Jung, a Psicologia Analítica e o Tarô</h2>
 
       <div class="manifesto-content" style="text-align: justify; margin-top: 3rem;">
         <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem; text-align: justify;">
