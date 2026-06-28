@@ -696,11 +696,12 @@
       color: #D1D5DB !important;
     }
 
-    /* Blindagem da Seção de Preços (Fundo claro exige texto escuro sempre) */
-    [data-theme="dark"] body.page-tarot .pricing-card-solid p,
-    [data-theme="dark"] body.page-tarot .pricing-card-solid h4,
-    [data-theme="dark"] body.page-tarot .pricing-card-solid span {
-      color: #1a202c !important;
+    /* Blindagem da Seção de Preços (Cores originais e idênticas ao Modo Claro) */
+    [data-theme="dark"] body.page-tarot .pricing-card-solid h3 {
+      color: var(--color-primary) !important;
+    }
+    [data-theme="dark"] body.page-tarot .pricing-card-solid li {
+      color: var(--text-secondary) !important;
     }
 
     /* Botão "Conheça os Métodos" - Dourado no Modo Escuro */
@@ -1389,6 +1390,45 @@
   <!-- ---------------------------------------------------------------------
        SEÇÃO LOGÍSTICA E INVESTIMENTO (FUNDO INTEGRADO)
        --------------------------------------------------------------------- -->
+
+  <section class="tarot-pricing" id="agendamento"
+    style="padding: 6rem 0; background: url('Fundo.jpg') center/cover no-repeat, var(--bg-secondary);">
+    <div class="container">
+      <div class="pricing-card-solid"
+        style="max-width: 560px; margin: 0 auto; padding: 2.5rem; text-align: center; background-color: #FAF7F2; border: 1px solid var(--color-tarot); border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1);">
+        <h3
+          style="font-family: var(--font-title); font-size: 1.8rem; color: var(--color-primary); margin: 0 0 1rem 0; line-height: 1.2; white-space: nowrap;">
+          Consulta de Alinhamento Arquetípico
+        </h3>
+
+        <ul
+          style="list-style: none; color: var(--text-secondary); margin: 0 0 1.2rem 0; text-align: left; padding-left: 0; line-height: 1.6; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem; white-space: nowrap;"><strong style="color: var(--color-primary);">⏳
+              Duração:</strong> 1h30 (Sessão Única e Pontual)</li>
+          <li style="white-space: nowrap;"><strong style="color: var(--color-primary);">🌐 Formato:</strong> 100% Online
+            via Consultório Virtual (com absoluto sigilo)</li>
+        </ul>
+
+        <div class="pricing-price-box"
+          style="display: flex; align-items: baseline; justify-content: center; margin: 0 0 1.2rem 0; flex-wrap: nowrap;">
+          <span class="pricing-currency"
+            style="color: var(--color-tarot); font-size: 1.25rem; font-weight: bold; margin-right: 0.25rem;">R$</span>
+          <span class="pricing-value"
+            style="color: var(--color-tarot); font-size: 3.5rem; font-family: var(--font-title); font-weight: 800; line-height: 1;">397</span>
+          <span class="pricing-period"
+            style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 0.3rem; white-space: nowrap;">,00 via
+            Pix à vista</span>
+        </div>
+
+        <a href="https://api.whatsapp.com/send?phone=5511998834347&text=Ol%C3%A1%20Rosangela!%20Gostaria%20de%20agendar%20a%20Consulta%20de%20Tar%C3%B4%20Terap%C3%AAutico%20(Alinhamento%20Arquet%C3%ADpico)."
+          target="_blank" class="btn btn-primary btn-tarot-pricing"
+          style="width: 100%; font-size: 1.05rem; padding: 0.8rem; border-radius: 50px; font-weight: bold; margin-top: 0; display: block; box-sizing: border-box;">
+          Agendar Minha Sessão
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ---------------------------------------------------------------------
        SEÇÃO SOBRE MIM (BIOGRAFIA INTEGRADA)
        --------------------------------------------------------------------- -->
@@ -1441,43 +1481,6 @@
     </div>
   </section>
 
-  <section class="tarot-pricing" id="agendamento"
-    style="padding: 6rem 0; background: url('Fundo.jpg') center/cover no-repeat, var(--bg-secondary);">
-    <div class="container">
-      <div class="pricing-card-solid"
-        style="max-width: 560px; margin: 0 auto; padding: 2.5rem; text-align: center; background-color: #FAF7F2; border: 1px solid var(--color-tarot); border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.1);">
-        <h3
-          style="font-family: var(--font-title); font-size: 1.8rem; color: var(--color-primary); margin: 0 0 1rem 0; line-height: 1.2; white-space: nowrap;">
-          Consulta de Alinhamento Arquetípico
-        </h3>
-
-        <ul
-          style="list-style: none; color: var(--text-secondary); margin: 0 0 1.2rem 0; text-align: left; padding-left: 0; line-height: 1.6; font-size: 0.95rem;">
-          <li style="margin-bottom: 0.4rem; white-space: nowrap;"><strong style="color: var(--color-primary);">⏳
-              Duração:</strong> 1h30 (Sessão Única e Pontual)</li>
-          <li style="white-space: nowrap;"><strong style="color: var(--color-primary);">🌐 Formato:</strong> 100% Online
-            via Consultório Virtual (com absoluto sigilo)</li>
-        </ul>
-
-        <div class="pricing-price-box"
-          style="display: flex; align-items: baseline; justify-content: center; margin: 0 0 1.2rem 0; flex-wrap: nowrap;">
-          <span class="pricing-currency"
-            style="color: var(--color-tarot); font-size: 1.25rem; font-weight: bold; margin-right: 0.25rem;">R$</span>
-          <span class="pricing-value"
-            style="color: var(--color-tarot); font-size: 3.5rem; font-family: var(--font-title); font-weight: 800; line-height: 1;">397</span>
-          <span class="pricing-period"
-            style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 0.3rem; white-space: nowrap;">,00 via
-            Pix à vista</span>
-        </div>
-
-        <a href="https://api.whatsapp.com/send?phone=5511998834347&text=Ol%C3%A1%20Rosangela!%20Gostaria%20de%20agendar%20a%20Consulta%20de%20Tar%C3%B4%20Terap%C3%AAutico%20(Alinhamento%20Arquet%C3%ADpico)."
-          target="_blank" class="btn btn-primary btn-tarot-pricing"
-          style="width: 100%; font-size: 1.05rem; padding: 0.8rem; border-radius: 50px; font-weight: bold; margin-top: 0; display: block; box-sizing: border-box;">
-          Agendar Minha Sessão
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- ---------------------------------------------------------------------
        SEÇÃO FAQ (Componente Sanfona Expandível)
