@@ -697,11 +697,18 @@
     }
 
     /* Blindagem da Seção de Preços (Cores originais e idênticas ao Modo Claro) */
-    [data-theme="dark"] body.page-tarot .pricing-card-solid h3 {
-      color: var(--color-primary) !important;
+    [data-theme="dark"] body.page-tarot .pricing-card-solid h3,
+    [data-theme="dark"] body.page-tarot .pricing-card-solid strong {
+      color: #0A3C5C !important;
     }
-    [data-theme="dark"] body.page-tarot .pricing-card-solid li {
-      color: var(--text-secondary) !important;
+    [data-theme="dark"] body.page-tarot .pricing-card-solid p,
+    [data-theme="dark"] body.page-tarot .pricing-card-solid li,
+    [data-theme="dark"] body.page-tarot .pricing-card-solid span.pricing-period {
+      color: #4A5B66 !important;
+    }
+    [data-theme="dark"] body.page-tarot .pricing-card-solid span.pricing-currency,
+    [data-theme="dark"] body.page-tarot .pricing-card-solid span.pricing-value {
+      color: #C5A059 !important;
     }
 
     /* Botão "Conheça os Métodos" - Dourado no Modo Escuro */
