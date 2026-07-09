@@ -2192,3 +2192,12 @@ section {
         padding-right: calc(50vw - 600px + 1rem);
     }
 }
+
+
+/* BLINDAGEM UNIVERSAL ANTI-JOGO PARA CELULAres */
+@media (max-width: 1024px) {
+  section, .container, body, html {
+    overflow-x: hidden !important;
+    touch-action: pan-y;
+  }
+}
