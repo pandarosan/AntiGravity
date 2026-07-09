@@ -77,6 +77,12 @@
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -2250,4 +2256,11 @@ section {
   .hero-content.visible, .hero-media.visible, .bio-media.visible, .bio-content.visible, .contact-info.visible, .contact-card.visible {
     transform: translateY(0) !important;
   }
+}
+
+
+/* TRAVAS ESTRUTURAIS DE IMAGEM (RECOMENDACAO GEMINI) */
+.hero-img-wrapper, .bio-img-wrapper {
+  max-width: 100% !important;
+  overflow: hidden !important;
 }
