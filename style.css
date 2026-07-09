@@ -2194,17 +2194,10 @@ section {
 }
 
 
-/* CORRECAO DEFINITIVA DO JOGO DE TELA NO CELULAR
-   O menu móvel usa right: -100% que empurra a largura da página para fora.
-   A correção é travar o overflow no html (não só no body, pois alguns navegadores ignoram body).
-   Adicionalmente, convertemos animações horizontais para verticais no celular. */
+/* CORRECAO DO JOGO HORIZONTAL NO CELULAR
+   Apenas no html (nao no body) para nao quebrar a rolagem inercial do iOS */
 html {
   overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
-  position: relative;
 }
 
 @media (max-width: 768px) {
