@@ -2042,6 +2042,8 @@ section {
     padding-bottom: 5rem !important;
     display: flex !important;
     align-items: flex-start !important;
+    overflow-x: hidden;
+    touch-action: pan-y;
   }
 }
 
@@ -2189,4 +2191,13 @@ section {
         padding-left: calc(50vw - 600px + 1rem);
         padding-right: calc(50vw - 600px + 1rem);
     }
+}
+
+
+/* BLINDAGEM UNIVERSAL ANTI-JOGO PARA CELULAres */
+@media (max-width: 1024px) {
+  section, .container, body, html {
+    overflow-x: hidden !important;
+    touch-action: pan-y;
+  }
 }
