@@ -2218,3 +2218,25 @@ section {
     box-sizing: border-box !important;
   }
 }
+
+
+/* ESTILO ADAPTÁVEL PARA CARDS MENTORIA LOBOS */
+.lobos-metodologia-card {
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .lobos-metodologia-card {
+    padding: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
