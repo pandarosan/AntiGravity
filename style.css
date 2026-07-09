@@ -2240,3 +2240,14 @@ section {
     box-sizing: border-box !important;
   }
 }
+
+
+/* ERRADICACAO DO JOGO HORIZONTAL: FORCA ANIMACOES PARA O EIXO Y NO CELULAR */
+@media (max-width: 768px) {
+  .hero-content, .hero-media, .bio-media, .bio-content, .contact-info, .contact-card {
+    transform: translateY(20px) !important;
+  }
+  .hero-content.visible, .hero-media.visible, .bio-media.visible, .bio-content.visible, .contact-info.visible, .contact-card.visible {
+    transform: translateY(0) !important;
+  }
+}
