@@ -2194,10 +2194,22 @@ section {
 }
 
 
-/* CORRECAO JOGO DE TELA MOBILE - Baseada na solucao aplicada na pagina de Taro
-   Substitui animacoes translateX (horizontais) por translateY (verticais) no celular
-   Isso impede que elementos posicionados fora da tela estirem a largura da pagina */
+/* CORRECAO DEFINITIVA DO JOGO DE TELA NO CELULAR
+   O menu móvel usa right: -100% que empurra a largura da página para fora.
+   A correção é travar o overflow no html (não só no body, pois alguns navegadores ignoram body).
+   Adicionalmente, convertemos animações horizontais para verticais no celular. */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
 @media (max-width: 768px) {
+  /* Converte animações que entram pelos lados para entrar de baixo,
+     evitando que o navegador expanda a largura da página para acomodá-las */
   .hero-content,
   .hero-media,
   .bio-media,
@@ -2216,6 +2228,7 @@ section {
     transform: translateY(0) !important;
   }
 
+  /* Garante que imagens nunca ultrapassem a largura da tela */
   img {
     max-width: 100%;
     height: auto;
