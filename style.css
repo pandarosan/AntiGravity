@@ -82,6 +82,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  scroll-padding-top: 100px; /* EVITA QUE O TEXTO SUMA ATRÁS DO MENU */
 }
 
 body {
@@ -385,7 +386,7 @@ section {
    HERO SECTION
    --------------------------------------------------------------------- */
 .hero {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding-top: 8rem;
@@ -1699,6 +1700,11 @@ section {
 }
 
 @media (max-width: 768px) {
+  section {
+    padding-top: 5rem !important; /* Abre o espaço para o texto não sumir no topo da caixa */
+    padding-bottom: 4rem !important;
+  }
+
   .specialties-grid {
     grid-template-columns: 1fr;
   }
@@ -2043,7 +2049,7 @@ section {
     display: flex !important;
     align-items: flex-start !important;
     overflow-x: hidden;
-    touch-action: pan-y;
+    
   }
 }
 
