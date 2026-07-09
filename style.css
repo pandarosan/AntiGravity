@@ -2042,6 +2042,8 @@ section {
     padding-bottom: 5rem !important;
     display: flex !important;
     align-items: flex-start !important;
+    overflow-x: hidden;
+    touch-action: pan-y;
   }
 }
 
