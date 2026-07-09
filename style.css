@@ -2201,3 +2201,19 @@ section {
     touch-action: pan-y;
   }
 }
+
+
+/* CORREÇÕES ESPECÍFICAS ANTI-JOGO (ABORDAGEM, ESPECIALIDADES, LOBOS) */
+@media (max-width: 768px) {
+  .about-therapy, .specialties, .areas-grid, .specialties-grid {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .lobos-feature-item {
+    padding: 1.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
