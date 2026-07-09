@@ -77,12 +77,6 @@
   padding: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -2109,7 +2103,6 @@ section {
     margin-left: 0 !important;
     margin-right: 0 !important;
     gap: 1.5rem !important;
-    box-sizing: border-box !important;
   }
   
   /* Manifesto watermark repeat for long mobile text */
@@ -2201,66 +2194,31 @@ section {
 }
 
 
-/* BLINDAGEM UNIVERSAL ANTI-JOGO PARA CELULAres */
-@media (max-width: 1024px) {
-  section, .container, body, html {
-    overflow-x: hidden !important;
-    touch-action: pan-y;
-  }
-}
-
-
-/* CORREÇÕES ESPECÍFICAS ANTI-JOGO (ABORDAGEM, ESPECIALIDADES, LOBOS) */
+/* CORRECAO JOGO DE TELA MOBILE - Baseada na solucao aplicada na pagina de Taro
+   Substitui animacoes translateX (horizontais) por translateY (verticais) no celular
+   Isso impede que elementos posicionados fora da tela estirem a largura da pagina */
 @media (max-width: 768px) {
-  .about-therapy, .specialties, .areas-grid, .specialties-grid {
-    width: 100% !important;
-    max-width: 100vw !important;
-    box-sizing: border-box !important;
-  }
-
-  .lobos-feature-item {
-    padding: 1.5rem !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-}
-
-
-/* ESTILO ADAPTÁVEL PARA CARDS MENTORIA LOBOS */
-.lobos-metodologia-card {
-  padding: 2.5rem;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-card);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-shadow: var(--shadow-sm);
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .lobos-metodologia-card {
-    padding: 1.25rem !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-}
-
-
-/* ERRADICACAO DO JOGO HORIZONTAL: FORCA ANIMACOES PARA O EIXO Y NO CELULAR */
-@media (max-width: 768px) {
-  .hero-content, .hero-media, .bio-media, .bio-content, .contact-info, .contact-card {
+  .hero-content,
+  .hero-media,
+  .bio-media,
+  .bio-content,
+  .contact-info,
+  .contact-card {
     transform: translateY(20px) !important;
   }
-  .hero-content.visible, .hero-media.visible, .bio-media.visible, .bio-content.visible, .contact-info.visible, .contact-card.visible {
+
+  .hero-content.visible,
+  .hero-media.visible,
+  .bio-media.visible,
+  .bio-content.visible,
+  .contact-info.visible,
+  .contact-card.visible {
     transform: translateY(0) !important;
   }
-}
 
-
-/* TRAVAS ESTRUTURAIS DE IMAGEM (RECOMENDACAO GEMINI) */
-.hero-img-wrapper, .bio-img-wrapper {
-  max-width: 100% !important;
-  overflow: hidden !important;
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 }
