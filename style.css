@@ -2207,6 +2207,11 @@ html {
 }
 
 @media (max-width: 768px) {
+  section {
+    padding-top: 5rem !important; /* Isso empurra o texto para baixo, dando o respiro dentro da caixa */
+    padding-bottom: 4rem !important;
+  }
+
   /* Converte animações que entram pelos lados para entrar de baixo,
      evitando que o navegador expanda a largura da página para acomodá-las */
   .hero-content,
