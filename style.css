@@ -81,7 +81,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  
   scroll-padding-top: 100px; /* EVITA QUE O TEXTO SUMA ATRÁS DO MENU */
 }
 
@@ -89,13 +89,14 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   background-image: var(--bg-body-image);
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   background-position: center;
   color: var(--text-primary);
   line-height: 1.6;
   
   transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: clip;
 }
 
 a {
@@ -1702,7 +1703,7 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding-top: 5rem !important; /* Abre o espaço para o texto não sumir no topo da caixa */
+    padding-top: 7rem !important; /* Abre o espaço para o texto não sumir no topo da caixa */
     padding-bottom: 4rem !important;
     scroll-margin-top: 100px !important;
   }
@@ -2204,13 +2205,11 @@ section {
 
 /* CORRECAO DO JOGO HORIZONTAL NO CELULAR
    Apenas no html (nao no body) para nao quebrar a rolagem inercial do iOS */
-html {
-  overflow-x: hidden;
-}
+
 
 @media (max-width: 768px) {
   section {
-    padding-top: 5rem !important; /* Isso empurra o texto para baixo, dando o respiro dentro da caixa */
+    padding-top: 7rem !important; /* Isso empurra o texto para baixo, dando o respiro dentro da caixa */
     padding-bottom: 4rem !important;
     scroll-margin-top: 100px !important;
   }
