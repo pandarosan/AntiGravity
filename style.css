@@ -94,7 +94,7 @@ body {
   background-position: center;
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
@@ -128,6 +128,7 @@ button, input, textarea {
 section {
   padding: 6rem 0;
   position: relative;
+  scroll-margin-top: 110px;
 }
 
 .section-header {
@@ -1703,6 +1704,7 @@ section {
   section {
     padding-top: 5rem !important; /* Abre o espaço para o texto não sumir no topo da caixa */
     padding-bottom: 4rem !important;
+    scroll-margin-top: 100px !important;
   }
 
   .specialties-grid {
@@ -2058,7 +2060,7 @@ section {
   html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    
   }
   
   .container {
@@ -2210,6 +2212,7 @@ html {
   section {
     padding-top: 5rem !important; /* Isso empurra o texto para baixo, dando o respiro dentro da caixa */
     padding-bottom: 4rem !important;
+    scroll-margin-top: 100px !important;
   }
 
   /* Converte animações que entram pelos lados para entrar de baixo,
