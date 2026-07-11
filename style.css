@@ -1786,7 +1786,8 @@ section {
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
     width: 280px;
     height: 100vh;
     background-color: var(--bg-glass);
@@ -1797,12 +1798,12 @@ section {
     justify-content: center;
     gap: 2rem;
     padding: 3rem;
-    transition: right var(--transition-normal);
+    transition: transform var(--transition-normal);
     z-index: 998;
   }
   
   .nav-menu.active {
-    right: 0;
+    transform: translateX(0);
   }
   
   .mobile-nav-toggle {
@@ -2051,7 +2052,7 @@ section {
     padding-bottom: 5rem !important;
     display: flex !important;
     align-items: flex-start !important;
-    overflow-x: hidden;
+    
     
   }
 }
@@ -2071,7 +2072,7 @@ section {
     padding-right: 1.25rem !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
-    overflow-x: hidden !important;
+    
   }
   
   .hero-grid, .therapy-grid, .bio-grid, .contact-grid {
@@ -2239,5 +2240,20 @@ section {
     max-width: 100%;
     height: auto;
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .bio-badge {
+    right: 10px !important;
+    bottom: -10px !important;
+  }
+  
+  .lobos-cta-section a.btn {
+    white-space: normal !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 0.95rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
