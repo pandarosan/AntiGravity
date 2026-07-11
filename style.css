@@ -1703,8 +1703,6 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding-top: 7rem !important; /* Abre o espaço para o texto não sumir no topo da caixa */
-    padding-bottom: 4rem !important;
     scroll-margin-top: 100px !important;
   }
 
@@ -2210,8 +2208,6 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding-top: 7rem !important; /* Isso empurra o texto para baixo, dando o respiro dentro da caixa */
-    padding-bottom: 4rem !important;
     scroll-margin-top: 100px !important;
   }
 
